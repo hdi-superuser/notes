@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-js" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Convex hull trick/commando.cpp - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick/commando.cpp&amp;action=edit">
+<link rel="edit" title="Edit" href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick/commando.cpp&amp;action=edit">
+<link rel="shortcut icon" href="http://wcipeg.com/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wcipeg.com/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="http://wcipeg.com/wiki/Convex_hull_trick/commando.cpp">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="http://wcipeg.com/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="Convex%20hull%20trick_commando.cpp%20-%20PEGWiki_files/load.css">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(http://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:0fe9a7b980a2144415c409665edf6856 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="Convex%20hull%20trick_commando.cpp%20-%20PEGWiki_files/load_002.css">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="Convex%20hull%20trick_commando.cpp%20-%20PEGWiki_files/load_003.php"></script><script src="Convex%20hull%20trick_commando.cpp%20-%20PEGWiki_files/load_004.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Convex_hull_trick/commando.cpp","wgTitle":"Convex hull trick/commando.cpp","wgCurRevisionId":1963,"wgRevisionId":1963,"wgArticleId":468,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Convex_hull_trick/commando.cpp","wgRelevantArticleId":468,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="Convex%20hull%20trick_commando.cpp%20-%20PEGWiki_files/load_002.php"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Convex_hull_trick_commando_cpp skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Convex hull trick/commando.cpp</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="cpp source-cpp"><pre class="de1"><span class="co1">// The following code for APIO 2010 "Commando" was contributed by Haidar Abboud.</span>
+<span class="co2">#include &lt;cstdio&gt;</span>
+<span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+<span class="kw2">using</span> <span class="kw2">namespace</span> std<span class="sy4">;</span>
+&nbsp;
+<span class="kw4">const</span> <span class="kw4">int</span> MAXN <span class="sy1">=</span> <span class="nu0">1000001</span><span class="sy4">;</span>
+<span class="kw4">int</span> N , a , b , c<span class="sy4">;</span>
+<span class="kw4">int</span> x<span class="br0">[</span>MAXN<span class="br0">]</span><span class="sy4">;</span>
+<span class="kw4">long</span> <span class="kw4">long</span> sum<span class="br0">[</span>MAXN<span class="br0">]</span><span class="sy4">;</span>
+<span class="kw4">long</span> <span class="kw4">long</span> dp<span class="br0">[</span>MAXN<span class="br0">]</span><span class="sy4">;</span>
+<span class="co1">// The convex hull trick code below was derived from acquire.cpp</span>
+vector <span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">long</span><span class="sy1">&gt;</span> M<span class="sy4">;</span>
+vector <span class="sy1">&lt;</span><span class="kw4">long</span> <span class="kw4">long</span><span class="sy1">&gt;</span> B<span class="sy4">;</span>
+<span class="kw4">bool</span> bad<span class="br0">(</span><span class="kw4">int</span> l1,<span class="kw4">int</span> l2,<span class="kw4">int</span> l3<span class="br0">)</span>
+<span class="br0">{</span>
+        <span class="kw1">return</span> <span class="br0">(</span>B<span class="br0">[</span>l3<span class="br0">]</span><span class="sy2">-</span>B<span class="br0">[</span>l1<span class="br0">]</span><span class="br0">)</span><span class="sy2">*</span><span class="br0">(</span>M<span class="br0">[</span>l1<span class="br0">]</span><span class="sy2">-</span>M<span class="br0">[</span>l2<span class="br0">]</span><span class="br0">)</span><span class="sy1">&lt;</span><span class="br0">(</span>B<span class="br0">[</span>l2<span class="br0">]</span><span class="sy2">-</span>B<span class="br0">[</span>l1<span class="br0">]</span><span class="br0">)</span><span class="sy2">*</span><span class="br0">(</span>M<span class="br0">[</span>l1<span class="br0">]</span><span class="sy2">-</span>M<span class="br0">[</span>l3<span class="br0">]</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span>
+<span class="kw4">void</span> add<span class="br0">(</span><span class="kw4">long</span> <span class="kw4">long</span> m,<span class="kw4">long</span> <span class="kw4">long</span> b<span class="br0">)</span>
+<span class="br0">{</span>
+        M.<span class="me1">push_back</span><span class="br0">(</span>m<span class="br0">)</span><span class="sy4">;</span>
+        B.<span class="me1">push_back</span><span class="br0">(</span>b<span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">while</span> <span class="br0">(</span>M.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="sy1">&gt;=</span><span class="nu0">3</span><span class="sy3">&amp;&amp;</span>bad<span class="br0">(</span>M.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="nu0">3</span>,M.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="nu0">2</span>,M.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span>
+        <span class="br0">{</span>
+                M.<span class="me1">erase</span><span class="br0">(</span>M.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="nu0">2</span><span class="br0">)</span><span class="sy4">;</span>
+                B.<span class="me1">erase</span><span class="br0">(</span>B.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="nu0">2</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+<span class="br0">}</span>
+<span class="kw4">int</span> pointer<span class="sy4">;</span>
+<span class="kw4">long</span> <span class="kw4">long</span> query<span class="br0">(</span><span class="kw4">long</span> <span class="kw4">long</span> x<span class="br0">)</span>
+<span class="br0">{</span>
+        <span class="kw1">if</span> <span class="br0">(</span>pointer <span class="sy1">&gt;=</span>M.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+                pointer<span class="sy1">=</span>M.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="nu0">1</span><span class="sy4">;</span>
+        <span class="kw1">while</span> <span class="br0">(</span>pointer<span class="sy1">&lt;</span>M.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span><span class="nu0">1</span><span class="sy3">&amp;&amp;</span>
+          M<span class="br0">[</span>pointer<span class="sy2">+</span><span class="nu0">1</span><span class="br0">]</span><span class="sy2">*</span>x<span class="sy2">+</span>B<span class="br0">[</span>pointer<span class="sy2">+</span><span class="nu0">1</span><span class="br0">]</span><span class="sy1">&gt;</span>M<span class="br0">[</span>pointer<span class="br0">]</span><span class="sy2">*</span>x<span class="sy2">+</span>B<span class="br0">[</span>pointer<span class="br0">]</span><span class="br0">)</span>
+                pointer<span class="sy2">++</span><span class="sy4">;</span>
+        <span class="kw1">return</span> M<span class="br0">[</span>pointer<span class="br0">]</span><span class="sy2">*</span>x<span class="sy2">+</span>B<span class="br0">[</span>pointer<span class="br0">]</span><span class="sy4">;</span>
+<span class="br0">}</span>
+&nbsp;
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span><span class="br0">{</span>
+        <span class="kw3">scanf</span><span class="br0">(</span><span class="st0">"%d"</span> , <span class="sy3">&amp;</span>N<span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw3">scanf</span><span class="br0">(</span><span class="st0">"%d&nbsp;%d&nbsp;%d"</span> , <span class="sy3">&amp;</span>a , <span class="sy3">&amp;</span>b , <span class="sy3">&amp;</span>c<span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> n <span class="sy1">=</span> <span class="nu0">1</span> <span class="sy4">;</span> n <span class="sy1">&lt;=</span> N <span class="sy4">;</span> n<span class="sy2">++</span><span class="br0">)</span><span class="br0">{</span>
+                <span class="kw3">scanf</span><span class="br0">(</span><span class="st0">"%d"</span> , <span class="sy3">&amp;</span>x<span class="br0">[</span>n<span class="br0">]</span><span class="br0">)</span><span class="sy4">;</span>
+                sum<span class="br0">[</span>n<span class="br0">]</span> <span class="sy1">=</span> sum<span class="br0">[</span>n <span class="sy2">-</span> <span class="nu0">1</span><span class="br0">]</span> <span class="sy2">+</span> x<span class="br0">[</span>n<span class="br0">]</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+        dp<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy1">=</span> a <span class="sy2">*</span> x<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy2">*</span> x<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy2">+</span> b <span class="sy2">*</span> x<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy2">+</span> c<span class="sy4">;</span>
+        add<span class="br0">(</span><span class="sy2">-</span><span class="nu0">2</span> <span class="sy2">*</span> a <span class="sy2">*</span> x<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> , dp<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy2">+</span> a <span class="sy2">*</span> x<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy2">*</span> x<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="sy2">-</span> b <span class="sy2">*</span> x<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="br0">)</span><span class="sy4">;</span>
+&nbsp;
+        <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> n <span class="sy1">=</span> <span class="nu0">2</span> <span class="sy4">;</span> n <span class="sy1">&lt;=</span> N <span class="sy4">;</span> n<span class="sy2">++</span><span class="br0">)</span><span class="br0">{</span>
+                dp<span class="br0">[</span>n<span class="br0">]</span> <span class="sy1">=</span> a <span class="sy2">*</span> sum<span class="br0">[</span>n<span class="br0">]</span> <span class="sy2">*</span> sum<span class="br0">[</span>n<span class="br0">]</span> <span class="sy2">+</span> b <span class="sy2">*</span> sum<span class="br0">[</span>n<span class="br0">]</span> <span class="sy2">+</span> c<span class="sy4">;</span>
+                dp<span class="br0">[</span>n<span class="br0">]</span> <span class="sy1">=</span> max<span class="br0">(</span>dp<span class="br0">[</span>n<span class="br0">]</span> , b <span class="sy2">*</span> sum<span class="br0">[</span>n<span class="br0">]</span> <span class="sy2">+</span> a <span class="sy2">*</span> sum<span class="br0">[</span>n<span class="br0">]</span> <span class="sy2">*</span> sum<span class="br0">[</span>n<span class="br0">]</span> <span class="sy2">+</span> c <span class="sy2">+</span> query<span class="br0">(</span>sum<span class="br0">[</span>n<span class="br0">]</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+                add<span class="br0">(</span><span class="sy2">-</span><span class="nu0">2</span> <span class="sy2">*</span> a <span class="sy2">*</span> sum<span class="br0">[</span>n<span class="br0">]</span> , dp<span class="br0">[</span>n<span class="br0">]</span> <span class="sy2">+</span> a <span class="sy2">*</span> sum<span class="br0">[</span>n<span class="br0">]</span> <span class="sy2">*</span> sum<span class="br0">[</span>n<span class="br0">]</span> <span class="sy2">-</span> b <span class="sy2">*</span> sum<span class="br0">[</span>n<span class="br0">]</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="br0">}</span>
+        <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"%lld<span class="es1">\n</span>"</span> , dp<span class="br0">[</span>N<span class="br0">]</span><span class="br0">)</span><span class="sy4">;</span>
+        <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.020 seconds
+Real time usage: 0.020 seconds
+Preprocessor visited node count: 4/1000000
+Preprocessor generated node count: 24/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:468-0!*!*!*!*!*!* and timestamp 20160608185658 and revision id 1963
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick/commando.cpp&amp;oldid=1963">http://wcipeg.com/wiki/index.php?title=Convex_hull_trick/commando.cpp&amp;oldid=1963</a>"					</div>
+													<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="http://wcipeg.com/wiki/index.php?title=Special:UserLogin&amp;returnto=Convex+hull+trick%2Fcommando.cpp&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="http://wcipeg.com/wiki/index.php?title=Special:UserLogin&amp;returnto=Convex+hull+trick%2Fcommando.cpp" title="You are encouraged to log in; however, it is not mandatory [Alt+Shift+o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="http://wcipeg.com/wiki/Convex_hull_trick/commando.cpp" title="View the content page [Alt+Shift+c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="http://wcipeg.com/wiki/index.php?title=Talk:Convex_hull_trick/commando.cpp&amp;action=edit&amp;redlink=1" title="Discussion about the content page [Alt+Shift+t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 tabindex="0" id="p-variants-label"><span>Variants</span><a tabindex="-1" href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="http://wcipeg.com/wiki/Convex_hull_trick/commando.cpp">Read</a></span></li>
+															<li id="ca-edit"><span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick/commando.cpp&amp;action=edit" title="You can edit this page. Please use the preview button before saving [Alt+Shift+e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick/commando.cpp&amp;action=history" title="Past revisions of this page [Alt+Shift+h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div style="" id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 tabindex="0" id="p-cactions-label"><span>More</span><a tabindex="-1" href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input autocomplete="off" tabindex="1" name="search" placeholder="Search" title="Search PEGWiki [Alt+Shift+f]" accesskey="f" id="searchInput" type="search"><input value="Special:Search" name="title" type="hidden"><input name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" type="submit">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="http://wcipeg.com/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="http://wcipeg.com/wiki/Main_Page" title="Visit the main page [Alt+Shift+z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="http://wcipeg.com/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="http://wcipeg.com/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [Alt+Shift+r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://wcipeg.com/wiki/Special:Random" title="Load a random page [Alt+Shift+x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="http://wcipeg.com/wiki/Special:WhatLinksHere/Convex_hull_trick/commando.cpp" title="A list of all wiki pages that link here [Alt+Shift+j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="http://wcipeg.com/wiki/Special:RecentChangesLinked/Convex_hull_trick/commando.cpp" title="Recent changes in pages linked from this page [Alt+Shift+k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="http://wcipeg.com/wiki/Special:SpecialPages" title="A list of all special pages [Alt+Shift+q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick/commando.cpp&amp;printable=yes" rel="alternate" title="Printable version of this page [Alt+Shift+p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick/commando.cpp&amp;oldid=1963" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick/commando.cpp&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 11 March 2016, at 14:31.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://wcipeg.com/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://wcipeg.com/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="http://wcipeg.com/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="Convex%20hull%20trick_commando.cpp%20-%20PEGWiki_files/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="http://www.mediawiki.org/"><img src="Convex%20hull%20trick_commando.cpp%20-%20PEGWiki_files/poweredby_mediawiki_88x31.html" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="Convex%20hull%20trick_commando.cpp%20-%20PEGWiki_files/load.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":75});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

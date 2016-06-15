@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-js" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Convex hull trick - PEGWiki</title>
+<meta name="generator" content="MediaWiki 1.25.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit">
+<link rel="edit" title="Edit" href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit">
+<link rel="shortcut icon" href="http://wcipeg.com/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wcipeg.com/wiki/opensearch_desc.php" title="PEGWiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://wcipeg.com/wiki/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="http://wcipeg.com/wiki/Convex_hull_trick">
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/">
+<link rel="alternate" type="application/atom+xml" title="PEGWiki Atom feed" href="http://wcipeg.com/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="Convex%20hull%20trick%20-%20PEGWiki_files/load_002.css">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(http://wcipeg.com/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T21:21:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:0fe9a7b980a2144415c409665edf6856 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="Convex%20hull%20trick%20-%20PEGWiki_files/load.css">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb:resourceloader:filter:minify-css:7:b36fd1c042133c9c9b60260f7c29b237 */</style>
+<script src="Convex%20hull%20trick%20-%20PEGWiki_files/load_003.php"></script><script src="Convex%20hull%20trick%20-%20PEGWiki_files/load_004.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Convex_hull_trick","wgTitle":"Convex hull trick","wgCurRevisionId":1900,"wgRevisionId":1900,"wgArticleId":68,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Algorithms","Data structures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Convex_hull_trick","wgRelevantArticleId":68,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikidb:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="Convex%20hull%20trick%20-%20PEGWiki_files/load_002.php"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Convex_hull_trick skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Convex hull trick</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PEGWiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><p>The <b>convex hull trick</b> is a technique (perhaps best classified as a data structure) used to determine <i>efficiently</i>,
+ after preprocessing, which member of a set of linear functions in one 
+variable attains an extremal value for a given value of the independent 
+variable. It has little to do with <a href="http://wcipeg.com/wiki/Convex_hull" title="Convex hull">convex hull</a> algorithms.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#The_problem"><span class="tocnumber">2</span> <span class="toctext">The problem</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Naive_algorithm"><span class="tocnumber">3</span> <span class="toctext">Naive algorithm</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#The_technique"><span class="tocnumber">4</span> <span class="toctext">The technique</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Etymology"><span class="tocnumber">4.1</span> <span class="toctext">Etymology</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Adding_a_line"><span class="tocnumber">4.2</span> <span class="toctext">Adding a line</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Analysis"><span class="tocnumber">4.3</span> <span class="toctext">Analysis</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Case_study:_USACO_MAR08_acquire"><span class="tocnumber">5</span> <span class="toctext">Case study: USACO MAR08 acquire</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Problem"><span class="tocnumber">5.1</span> <span class="toctext">Problem</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Observation_1:_Irrelevant_rectangles"><span class="tocnumber">5.2</span> <span class="toctext">Observation 1: Irrelevant rectangles</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Observation_2:_Contiguity"><span class="tocnumber">5.3</span> <span class="toctext">Observation 2: Contiguity</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#DP_solution"><span class="tocnumber">5.4</span> <span class="toctext">DP solution</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Observation_3:_Convexity"><span class="tocnumber">5.5</span> <span class="toctext">Observation 3: Convexity</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#Another_example:_APIO_2010_Commando"><span class="tocnumber">6</span> <span class="toctext">Another example: APIO 2010 Commando</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#Fully_dynamic_variant"><span class="tocnumber">7</span> <span class="toctext">Fully dynamic variant</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#Code"><span class="tocnumber">9</span> <span class="toctext">Code</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=1" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The convex hull trick is perhaps best known in algorithm competitions
+ from being required to obtain full marks in several USACO problems, 
+such as <a rel="nofollow" class="external text" href="http://tjsct.wikidot.com/usaco-mar08-gold">MAR08 "acquire"</a>, which began to be featured in national olympiads after its debut in the IOI '02 task <a rel="nofollow" class="external text" href="http://wcipeg.com/problem/ioi0221">Batch Scheduling</a>,
+ which itself credits the technique to a 1995 paper (see references). 
+Very few online sources mention it, and almost none describe it. It has 
+been suggested (van den Hooff, 2010) that this is because the technique 
+is "obvious" to anybody who has learned the <a href="http://wcipeg.com/wiki/index.php?title=Sweep_line_algorithm&amp;action=edit&amp;redlink=1" class="new" title="Sweep line algorithm (page does not exist)">sweep line algorithm</a> for the <a href="http://wcipeg.com/wiki/index.php?title=Line_segment_intersection_problem&amp;action=edit&amp;redlink=1" class="new" title="Line segment intersection problem (page does not exist)">line segment intersection problem</a>.
+</p>
+<h2><span class="mw-headline" id="The_problem">The problem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=2" title="Edit section: The problem">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Suppose that a large set of linear functions in the form <img class="mwe-math-fallback-image-inline tex" alt="y = m_i x + b_i" src="Convex%20hull%20trick%20-%20PEGWiki_files/d66b6dd3a0750e2ffe460d38665e3347.png"> is given along with a large number of queries. Each query consists of a value of <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png"> and asks for the minimum value of <img class="mwe-math-fallback-image-inline tex" alt="y" src="Convex%20hull%20trick%20-%20PEGWiki_files/415290769594460e2e485922904f345d.png"> that can be obtained if we select one of the linear functions and evaluate it at <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png">. For example, suppose our functions are <img class="mwe-math-fallback-image-inline tex" alt="y=4" src="Convex%20hull%20trick%20-%20PEGWiki_files/cb8b40bdc02bf55c1ad1353918a371f5.png">, <img class="mwe-math-fallback-image-inline tex" alt="y=4/3+2/3\,x" src="Convex%20hull%20trick%20-%20PEGWiki_files/ce79ed4f1d07994f454cb5325679d6c6.png">, <img class="mwe-math-fallback-image-inline tex" alt="y=12-3x" src="Convex%20hull%20trick%20-%20PEGWiki_files/3ba8805a54f3769c8d77ebb4dcb45367.png">, and <img class="mwe-math-fallback-image-inline tex" alt="y=3-1/2\,x" src="Convex%20hull%20trick%20-%20PEGWiki_files/a97bcbb56dc6f5c3763dbd64219c7fde.png"> and we receive the query <img class="mwe-math-fallback-image-inline tex" alt="x=1" src="Convex%20hull%20trick%20-%20PEGWiki_files/a255512f9d61a6777bd5a304235bd26d.png">. We have to identify which of these functions assumes the lowest <img class="mwe-math-fallback-image-inline tex" alt="y" src="Convex%20hull%20trick%20-%20PEGWiki_files/415290769594460e2e485922904f345d.png">-value for <img class="mwe-math-fallback-image-inline tex" alt="x=1" src="Convex%20hull%20trick%20-%20PEGWiki_files/a255512f9d61a6777bd5a304235bd26d.png">, or what that value is. (It is the function <img class="mwe-math-fallback-image-inline tex" alt="y=4/3+2/3\,x" src="Convex%20hull%20trick%20-%20PEGWiki_files/ce79ed4f1d07994f454cb5325679d6c6.png">, assuming a value of 2.)</p>
+<p>The variation in which we seek the maximal line, not the minimal one,
+ is a trivial modification and we will focus our attention on finding 
+the minimal line.
+</p>
+<p></p><div class="thumb tright"><div class="thumbinner" style="width:202px;"><a href="http://wcipeg.com/wiki/File:Convex_hull_trick1.png" class="image"><img alt="" src="Convex%20hull%20trick%20-%20PEGWiki_files/200px-Convex_hull_trick1.png" class="thumbimage" srcset="/wiki/images/thumb/4/49/Convex_hull_trick1.png/300px-Convex_hull_trick1.png 1.5x, /wiki/images/thumb/4/49/Convex_hull_trick1.png/400px-Convex_hull_trick1.png 2x" width="200" height="259"></a>  <div class="thumbcaption"><div class="magnify"><a href="http://wcipeg.com/wiki/File:Convex_hull_trick1.png" class="internal" title="Enlarge"></a></div>Graphical representation of the lines in this example</div></div></div>
+When the lines are graphed, this is easy to see: we want to determine, at the <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png">-coordinate 1 (shown by the red vertical line), which line is "lowest" (has the lowest <img class="mwe-math-fallback-image-inline tex" alt="y" src="Convex%20hull%20trick%20-%20PEGWiki_files/415290769594460e2e485922904f345d.png">-coordinate). Here it is the heavy dashed line, <img class="mwe-math-fallback-image-inline tex" alt="y=4/3+2/3\,x" src="Convex%20hull%20trick%20-%20PEGWiki_files/ce79ed4f1d07994f454cb5325679d6c6.png">.<p></p>
+<h2><span class="mw-headline" id="Naive_algorithm">Naive algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=3" title="Edit section: Naive algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>For each of the <img class="mwe-math-fallback-image-inline tex" alt="Q" src="Convex%20hull%20trick%20-%20PEGWiki_files/f09564c9ca56850d4cd6b3319e541aee.png">
+ queries, of course, we may simply evaluate every one of the linear 
+functions, and determine which one has the least value for the given <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png">-value. If <img class="mwe-math-fallback-image-inline tex" alt="M" src="Convex%20hull%20trick%20-%20PEGWiki_files/69691c7bdcc3ce6d5d8a1361f22d04ac.png"> lines are given along with <img class="mwe-math-fallback-image-inline tex" alt="Q" src="Convex%20hull%20trick%20-%20PEGWiki_files/f09564c9ca56850d4cd6b3319e541aee.png"> queries, the complexity of this solution is <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{O}(MQ)" src="Convex%20hull%20trick%20-%20PEGWiki_files/1999b229aa50ed7df81081f96ccf3a8a.png">. The "trick" enables us to speed up the time for this computation to <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{O}((Q+M)\lg M)" src="Convex%20hull%20trick%20-%20PEGWiki_files/2986f16f870810816bb8cdc13b2a32ea.png">, a significant improvement.
+</p>
+<h2><span class="mw-headline" id="The_technique">The technique</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=4" title="Edit section: The technique">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Consider the diagram above. Notice that the line <img class="mwe-math-fallback-image-inline tex" alt="y=4" src="Convex%20hull%20trick%20-%20PEGWiki_files/cb8b40bdc02bf55c1ad1353918a371f5.png"> will <i>never</i> be the lowest one, regardless of the <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png">-value. Of the remaining three lines, <i>each one is the minimum in a single contiguous interval</i> (possibly having plus or minus infinity as one bound). That is, the heavy dotted line is the best line at all <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png">-values
+ left of its intersection with the heavy solid line; the heavy solid 
+line is the best line between that intersection and its intersection 
+with the light solid line; and the light solid line is the best line at 
+all <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png">-values greater than that. Notice also that, as <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png"> increases, the slope of the minimal line decreases: 2/3, -1/2, -3. Indeed, it is not difficult to see that this is <i>always</i> true.</p>
+<p>Thus, if we remove "irrelevant" lines such as <img class="mwe-math-fallback-image-inline tex" alt="y=4" src="Convex%20hull%20trick%20-%20PEGWiki_files/cb8b40bdc02bf55c1ad1353918a371f5.png"> in this example (the lines which will never give the minimum <img class="mwe-math-fallback-image-inline tex" alt="y" src="Convex%20hull%20trick%20-%20PEGWiki_files/415290769594460e2e485922904f345d.png">-coordinate, regardless of the query value) and sort the remaining lines by slope, we obtain a collection of <img class="mwe-math-fallback-image-inline tex" alt="N" src="Convex%20hull%20trick%20-%20PEGWiki_files/8d9c307cb7f3c4a32822a51922d1ceaa.png"> intervals (where <img class="mwe-math-fallback-image-inline tex" alt="N" src="Convex%20hull%20trick%20-%20PEGWiki_files/8d9c307cb7f3c4a32822a51922d1ceaa.png">
+ is the number of lines remaining), in each of which one of the lines is
+ the minimal one. If we can determine the endpoints of these intervals, 
+it becomes a simple matter to use <a href="http://wcipeg.com/wiki/Binary_search" title="Binary search">binary search</a> to answer each query.</p>
+<h3><span class="mw-headline" id="Etymology">Etymology</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=5" title="Edit section: Etymology">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The term <i>convex hull</i> is sometimes misused to mean <i>upper/lower envelope</i>. If we consider the "optimal" segment of each of the three lines (ignoring <img class="mwe-math-fallback-image-inline tex" alt="y=4" src="Convex%20hull%20trick%20-%20PEGWiki_files/cb8b40bdc02bf55c1ad1353918a371f5.png">), what we see is the <i>lower envelope</i> of the lines: nothing more or less than the set of points obtained by choosing the lowest point for every possible <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png">-coordinate.
+ (The lower envelope is highlighted in green in the diagram above.) 
+Notice that the set bounded above by the lower envelope is convex. We 
+could imagine the lower envelope being the upper convex hull of some set
+ of points, and thus the name <i>convex hull trick</i> arises. (Notice 
+that the problem we are trying to solve can again be reformulated as 
+finding the intersection of a given vertical line with the lower 
+envelope.)
+</p>
+<h3><span class="mw-headline" id="Adding_a_line">Adding a line</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=6" title="Edit section: Adding a line">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>As we have seen, if the set of relevant lines has already been determined and sorted, it becomes trivial to answer any query in <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{O}(\lg N)" src="Convex%20hull%20trick%20-%20PEGWiki_files/dd161db5b010882beec21d0300bfee36.png"> time <i>via</i>
+ binary search. Thus, if we can add lines one at a time to our data 
+structure, recalculating this information quickly with each addition, we
+ have a workable algorithm: start with no lines at all (or one, or two, 
+depending on implementation details) and add lines one by one until all 
+lines have been added and our data structure is complete.</p>
+<p>Suppose that we are able to process all of the lines before needing 
+to answer any of the queries. Then, we can sort them in descending order
+ by slope beforehand, and merely add them one by one. When adding a new 
+line, some lines may have to be removed because they are no longer 
+relevant. If we imagine the lines to lie on a <a href="http://wcipeg.com/wiki/Stack" title="Stack">stack</a>,
+ in which the most recently added line is at the top, as we add each new
+ line, we consider if the line on the top of the stack is relevant 
+anymore; if it still is, we push our new line and proceed. If it is not,
+ we pop it off and repeat this procedure until either the top line is 
+not worthy of being discarded or there is only one line left (the one on
+ the bottom, which can never be removed).</p>
+<p>How, then, can we determine if the line should be popped from the stack? Suppose <img class="mwe-math-fallback-image-inline tex" alt="l_1" src="Convex%20hull%20trick%20-%20PEGWiki_files/e6c5419e04a1206d2b1ba0ec48009362.png">, <img class="mwe-math-fallback-image-inline tex" alt="l_2" src="Convex%20hull%20trick%20-%20PEGWiki_files/c7b5cb501695b127a4a5203ecdf63d70.png">, and <img class="mwe-math-fallback-image-inline tex" alt="l_3" src="Convex%20hull%20trick%20-%20PEGWiki_files/816882dd52beaf495d44f74c8c510200.png"> are the second line from the top, the line at the top, and the line to be added, respectively. Then, <img class="mwe-math-fallback-image-inline tex" alt="l_2" src="Convex%20hull%20trick%20-%20PEGWiki_files/c7b5cb501695b127a4a5203ecdf63d70.png"> becomes irrelevant if and only if the intersection point of <img class="mwe-math-fallback-image-inline tex" alt="l_1" src="Convex%20hull%20trick%20-%20PEGWiki_files/e6c5419e04a1206d2b1ba0ec48009362.png"> and <img class="mwe-math-fallback-image-inline tex" alt="l_3" src="Convex%20hull%20trick%20-%20PEGWiki_files/816882dd52beaf495d44f74c8c510200.png"> is to the left of the intersection of <img class="mwe-math-fallback-image-inline tex" alt="l_1" src="Convex%20hull%20trick%20-%20PEGWiki_files/e6c5419e04a1206d2b1ba0ec48009362.png"> and <img class="mwe-math-fallback-image-inline tex" alt="l_2" src="Convex%20hull%20trick%20-%20PEGWiki_files/c7b5cb501695b127a4a5203ecdf63d70.png">. (This makes sense because it means that the interval in which <img class="mwe-math-fallback-image-inline tex" alt="l_3" src="Convex%20hull%20trick%20-%20PEGWiki_files/816882dd52beaf495d44f74c8c510200.png"> is minimal subsumes that in which <img class="mwe-math-fallback-image-inline tex" alt="l_2" src="Convex%20hull%20trick%20-%20PEGWiki_files/c7b5cb501695b127a4a5203ecdf63d70.png"> was previously.) We have assumed for the sake of simplicity that no three lines are concurrent.</p>
+<h3><span class="mw-headline" id="Analysis">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=7" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Clearly, the space required is <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{O}(M)" src="Convex%20hull%20trick%20-%20PEGWiki_files/b64041412dde3859c163f4258569bd47.png">: we need only store the sorted list of lines, each of which is defined by two real numbers.</p>
+<p>The time required to sort all of the lines by slope is <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{O}(M \lg M)" src="Convex%20hull%20trick%20-%20PEGWiki_files/15a14d1c720893d220e2f156031f30bd.png">.
+ When iterating through them, adding them to the envelope one by one, we
+ notice that every line is pushed onto our "stack" exactly once and that
+ each line can be popped at most once. For this reason, the time 
+required overall is <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{O}(M)" src="Convex%20hull%20trick%20-%20PEGWiki_files/b64041412dde3859c163f4258569bd47.png">
+ for this step; although each individual line, when being added, can 
+theoretically take up to linear time if almost all of the already-added 
+lines must now be removed, the total time is limited by the total number
+ of times a line can be removed. The cost of sorting dominates, and the 
+construction time is <img class="mwe-math-fallback-image-inline tex" alt="\mathcal{O}(M \lg M)." src="Convex%20hull%20trick%20-%20PEGWiki_files/f70d1f5f033db8260c5de42b2d344f05.png"></p>
+<h2><span class="mw-headline" id="Case_study:_USACO_MAR08_acquire">Case study: USACO MAR08 acquire</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=8" title="Edit section: Case study: USACO MAR08 acquire">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Problem">Problem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=9" title="Edit section: Problem">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Up to 50000 rectangles of possibly differing dimensions are given and
+ it is desired to acquire all of them. To acquire a subset of these 
+rectangles incurs a cost that is proportional to neither the size of the
+ subset nor to its total area but rather the product of the width of the
+ widest rectangle in the subset times the height of the tallest 
+rectangle in the subset. We wish to cleverly partition the rectangles 
+into groups so that the total cost is minimized; what is the total cost 
+if we do so? Rectangles may not be rotated; that is, we may not 
+interchange the length and width of a rectangle.</p>
+<h3><span class="mw-headline" id="Observation_1:_Irrelevant_rectangles">Observation 1: Irrelevant rectangles</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=10" title="Edit section: Observation 1: Irrelevant rectangles">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Suppose that both of rectangle A's dimensions equal or exceed the 
+corresponding dimensions of rectangle B. Then, we may remove rectangle B
+ from the input because its presence cannot affect the answer, because 
+we can merely compute an optimal solution without it and then insert it 
+into whichever subset contains rectangle A without changing the cost. 
+Rectangle B, then, is irrelevant. We first sort the rectangles in 
+ascending order of height and then sweep through them in linear time to 
+remove irrelevant rectangles. What remains is a list of rectangles in 
+which height is monotonically increasing and width is monotonically 
+decreasing. (Otherwise, a contradiction would exist to our assumption 
+that all irrelevant rectangles have been removed.)
+</p>
+<h3><span class="mw-headline" id="Observation_2:_Contiguity">Observation 2: Contiguity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=11" title="Edit section: Observation 2: Contiguity">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In the sorted list of remaining rectangles, <i>each subset to be acquired is contiguous</i>.
+ Thus, for example, if there are four rectangles, numbered 1, 2, 3, 4 
+according to their order in the sorted list, it is possible for the 
+optimal partition to be <img class="mwe-math-fallback-image-inline tex" alt="\{\{1,2\},\{3,4\}\}" src="Convex%20hull%20trick%20-%20PEGWiki_files/10c83035651370b89637715da77fdbcc.png"> but not <img class="mwe-math-fallback-image-inline tex" alt="\{\{1,4\},\{2,3\}\}" src="Convex%20hull%20trick%20-%20PEGWiki_files/accb3092c81e5aa9f7849b2b2e20040c.png">; in the latter, <img class="mwe-math-fallback-image-inline tex" alt="\{2,3\}" src="Convex%20hull%20trick%20-%20PEGWiki_files/865388554c0919c23e89deab950cb76d.png"> is contiguous but <img class="mwe-math-fallback-image-inline tex" alt="\{1,4\}" src="Convex%20hull%20trick%20-%20PEGWiki_files/6451f6228784995e33c35145dc927c96.png">
+ is not. This is true because, in any subset, if rectangle A is the 
+tallest and rectangle B is the widest, then all rectangles between them 
+in the sorted list may be added to this subset without any additional 
+cost, and therefore we will always assume that this occurs, making each 
+subset contiguous.
+</p>
+<h3><span class="mw-headline" id="DP_solution">DP solution</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=12" title="Edit section: DP solution">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The remaining problem then is how to divide up the list of rectangles
+ into contiguous subsets while minimizing the total cost. This problem 
+admits a <img class="mwe-math-fallback-image-inline tex" alt="\Theta(N^2)" src="Convex%20hull%20trick%20-%20PEGWiki_files/f2dc610b515c26ec1c10fcd76b90679d.png"> solution by <a href="http://wcipeg.com/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a>, the pseudocode for which is shown below: <i>Note
+ that it is assumed that the list of rectangles comes "cooked"; that is,
+ irrelevant rectangles have been removed and the remaining rectangles 
+sorted.</i>
+</p>
+<pre>input N
+for i ∈ [1..N]
+     input rect[i].h
+     input rect[i].w
+let cost[0] = 0
+for i ∈ [1..N]
+     let cost[i] = ∞
+     for j ∈ [0..i-1]
+         cost[i] = min(cost[i],cost[j]+rect[i].h*rect[j+1].w)
+print cost[N]
+</pre>
+<p>In the above solution, <code>cost[k]</code> stores the minimum possible total cost for acquiring the first <code>k</code> rectangles. Obviously, <code>cost[0]=0</code>. To compute <code>cost[i]</code> when <code>i</code>
+ is not zero, we notice that it is equal to the total cost of acquiring 
+all previous subsets plus the total cost of acquiring the subset 
+containing rectangle number <code>i</code>; the latter may be readily 
+calculated if the size of the latter subset is known, because it is 
+merely the width of the first times the height of the last (rectangle 
+number <code>i</code>). We wish to minimize this, hence <code>cost[i] = min(cost[i],cost[j]+rect[i].h*rect[j+1].w).</code> (Notice that <code>j</code> is the last rectangle of the previous subset, looping over all possible choices.)
+Unfortunately, <img class="mwe-math-fallback-image-inline tex" alt="\Theta(N^2)" src="Convex%20hull%20trick%20-%20PEGWiki_files/f2dc610b515c26ec1c10fcd76b90679d.png"> is too slow when <img class="mwe-math-fallback-image-inline tex" alt="N=50000" src="Convex%20hull%20trick%20-%20PEGWiki_files/2a414a35a4692ae1ae7d737fe826370a.png">, so a better solution is needed.
+</p>
+<h3><span class="mw-headline" id="Observation_3:_Convexity">Observation 3: Convexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=13" title="Edit section: Observation 3: Convexity">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Let <img class="mwe-math-fallback-image-inline tex" alt="m_j=\mathrm{rect}[j+1].w" src="Convex%20hull%20trick%20-%20PEGWiki_files/3c401198348a95bd88ccc5a1383c9642.png">, <img class="mwe-math-fallback-image-inline tex" alt="b_j=\mathrm{cost}[j]" src="Convex%20hull%20trick%20-%20PEGWiki_files/f330aa433eeaad03088a2adf235c0b64.png">, and <img class="mwe-math-fallback-image-inline tex" alt="x=\mathrm{rect}[i].h" src="Convex%20hull%20trick%20-%20PEGWiki_files/2ca9b1006186905dfccd16bb2662862d.png">. Then, it is clear that the inner loop in the above DP solution is actually trying to minimize the function <img class="mwe-math-fallback-image-inline tex" alt="y=m_j x + b_j" src="Convex%20hull%20trick%20-%20PEGWiki_files/19b7a456ee32418f60bf6b6cd16191f2.png"> by choosing <img class="mwe-math-fallback-image-inline tex" alt="j" src="Convex%20hull%20trick%20-%20PEGWiki_files/363b122c528f54df4a0446b6bab05515.png">
+ appropriately. That is, it is trying to solve exactly the problem 
+discussed in this article. Thus, assuming we have implemented the lower 
+envelope data structure discussed in this article, the improved code 
+looks as follows:
+</p>
+<pre>input N
+for i ∈ [1..N]
+     input rect[i].h
+     input rect[i].w
+let E = empty lower envelope structure
+let cost[0] = 0
+add the line y=mx+b to E, where m=rect[1].w and b=cost[0] //b is zero
+for i ∈ [1..N]
+     cost[i] = E.query(rect[i].h)
+     if i&lt;N
+          E.add(m=rect[i+1].w,b=cost[i])
+print cost[N]
+</pre>
+<p>Notice that the lines are already being given in descending order of 
+slope, so that each line is added "at the right"; this is because we 
+already sorted them by width. The query step can be performed in 
+logarithmic time, as discussed, and the addition step in amortized 
+constant time, giving a <img class="mwe-math-fallback-image-inline tex" alt="\Theta(N\lg N)" src="Convex%20hull%20trick%20-%20PEGWiki_files/ff6ea591bbfd98dba26aafd964be0ac3.png">
+ solution. We can modify our data structure slightly to take advantage 
+of the fact that query values are non-decreasing (that is, no query 
+occurs further left than its predecessor, so that no line chosen has a 
+greater slope than the previous one chosen), and replace the binary 
+search with a <a href="http://wcipeg.com/wiki/index.php?title=Pointer_walk&amp;action=edit&amp;redlink=1" class="new" title="Pointer walk (page does not exist)">pointer walk</a>, reducing query time to amortized constant as well and giving a <img class="mwe-math-fallback-image-inline tex" alt="\Theta(N)" src="Convex%20hull%20trick%20-%20PEGWiki_files/c7e795bbc8e51db680d5f236abc18853.png"> solution for the DP step. The overall complexity, however, is still <img class="mwe-math-fallback-image-inline tex" alt="O(N\lg N)" src="Convex%20hull%20trick%20-%20PEGWiki_files/fa70394809bdebc967a26eb360bfbef9.png">, due to the sorting step.
+</p>
+<h2><span class="mw-headline" id="Another_example:_APIO_2010_Commando">Another example: APIO 2010 Commando</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=14" title="Edit section: Another example: APIO 2010 Commando">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>You are given:
+</p>
+<ul><li> A sequence of <img class="mwe-math-fallback-image-inline tex" alt="N" src="Convex%20hull%20trick%20-%20PEGWiki_files/8d9c307cb7f3c4a32822a51922d1ceaa.png"> <b>positive</b> integers (<img class="mwe-math-fallback-image-inline tex" alt="1 \le N \le 10^6" src="Convex%20hull%20trick%20-%20PEGWiki_files/42feef10fc37b894c7e46ac5d25429f2.png">).</li>
+<li> The integer coefficients of a quadratic function <img class="mwe-math-fallback-image-inline tex" alt="f(x) = ax^2 + bx + c" src="Convex%20hull%20trick%20-%20PEGWiki_files/1c0608dbfe281f9c9e4c4a6b63317d40.png">, where <img class="mwe-math-fallback-image-inline tex" alt="a &lt; 0" src="Convex%20hull%20trick%20-%20PEGWiki_files/cf8298b0e273301afdd921e7e4cf6c2b.png">.</li></ul>
+<p>The objective is to partition the sequence into contiguous subsequences such that the sum of <img class="mwe-math-fallback-image-inline tex" alt="f" src="Convex%20hull%20trick%20-%20PEGWiki_files/8fa14cdd754f91cc6554c9e71929cce7.png"> taken over all subsequences is maximized, where the value of a subsequence is the sum of its elements.
+</p><p>An <img class="mwe-math-fallback-image-inline tex" alt="O(N^2)" src="Convex%20hull%20trick%20-%20PEGWiki_files/fcfcbd130c01389717669e8a2772703b.png"> dynamic programming approach is not hard to see.
+We define:
+</p>
+<ol><li> <code>sum(i,j) = x[i] + x[i+1] + ... + x[j]</code></li>
+<li> <code>adjust(i,j) = a*sum(i,j)^2 + b*sum(i,j) + c</code></li></ol>
+<p>Then let
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="\operatorname{dp}(n) = \max_{0 \le k &lt; n} [\operatorname{dp}(k) + \operatorname{adjust}(k+1, n)]" src="Convex%20hull%20trick%20-%20PEGWiki_files/fabeae523532530f49929716692c436f.png">.</dd></dl>
+<p>Pseudocode:
+</p>
+<pre>dp[0] ← 0
+for n ∈ [1..N]
+    for k ∈ [0..n-1]
+        dp[n] ← max(dp[n], dp[k] + adjust(k + 1 , n))
+</pre>
+<p>Now let's play around with the function "adjust".
+</p><p>Denote <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{sum}(1,x)" src="Convex%20hull%20trick%20-%20PEGWiki_files/50f56d489f6b5ed04f0b651e3764cf3d.png"> by <img class="mwe-math-fallback-image-inline tex" alt="\sigma(x)" src="Convex%20hull%20trick%20-%20PEGWiki_files/4399312e754ad2254c8ac3fdbd86073a.png">. Then, for some value of <img class="mwe-math-fallback-image-inline tex" alt="k" src="Convex%20hull%20trick%20-%20PEGWiki_files/8ce4b16b22b58894aa86c421e8759df3.png">, we can write
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt="
+\begin{array}{rl}
+\operatorname{dp}(n) &amp;= \operatorname{dp}(k) + a(\sigma(n)-\sigma(k))^2 + b(\sigma(n)-\sigma(k)) + c \\
+&amp;= \operatorname{dp}(k)+  a(\sigma(n)^2 - 2\sigma(n)\sigma(k) + \sigma(k)^2) + b(\sigma(n) - \sigma(k)) + c \\
+&amp;= (a\sigma(n)^2 + b\sigma(n) + c) + \operatorname{dp}(k) - 2a\sigma(n)\sigma(k) + a\sigma(k)^2 - b\sigma(k)
+\end{array}
+" src="Convex%20hull%20trick%20-%20PEGWiki_files/0723d3f4e85956832ac511cddb0bdaf5.png"></dd></dl>
+<p>Now, let
+</p>
+<ol><li> <img class="mwe-math-fallback-image-inline tex" alt="z = \sigma(n)" src="Convex%20hull%20trick%20-%20PEGWiki_files/424b317dc417d9e420053df4c14f49dc.png"></li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="m = -2a\sigma(k)" src="Convex%20hull%20trick%20-%20PEGWiki_files/1ad94d0e04efc9ba95fdf03697e80084.png"></li>
+<li> <img class="mwe-math-fallback-image-inline tex" alt="p = \operatorname{dp}(k) + a\sigma(k)^2 - b\sigma(k)" src="Convex%20hull%20trick%20-%20PEGWiki_files/21476478431d5ca9c28d2f0eacd8b0c7.png"></li></ol>
+<p>Then, we see that <img class="mwe-math-fallback-image-inline tex" alt="mz + p" src="Convex%20hull%20trick%20-%20PEGWiki_files/17218f2f6fa6344772a6ebb252a2a782.png"> is the quantity we aim to maximize by our choice of <img class="mwe-math-fallback-image-inline tex" alt="k" src="Convex%20hull%20trick%20-%20PEGWiki_files/8ce4b16b22b58894aa86c421e8759df3.png">. Adding <img class="mwe-math-fallback-image-inline tex" alt="a\sigma(n)^2 + b\sigma(n) + c" src="Convex%20hull%20trick%20-%20PEGWiki_files/468527400346bd59563cce196a356148.png"> (which is independent of <img class="mwe-math-fallback-image-inline tex" alt="k" src="Convex%20hull%20trick%20-%20PEGWiki_files/8ce4b16b22b58894aa86c421e8759df3.png">) to the maximum gives the correct value of <img class="mwe-math-fallback-image-inline tex" alt="\operatorname{dp}(n)" src="Convex%20hull%20trick%20-%20PEGWiki_files/cea48e1b414c8411d46b76add9e1806a.png">. Also, <img class="mwe-math-fallback-image-inline tex" alt="z" src="Convex%20hull%20trick%20-%20PEGWiki_files/fbade9e36a3f36d3d676c1b808451dd7.png"> is independent of <img class="mwe-math-fallback-image-inline tex" alt="k" src="Convex%20hull%20trick%20-%20PEGWiki_files/8ce4b16b22b58894aa86c421e8759df3.png">, whereas <img class="mwe-math-fallback-image-inline tex" alt="m" src="Convex%20hull%20trick%20-%20PEGWiki_files/6f8f57715090da2632453988d9a1501b.png"> and <img class="mwe-math-fallback-image-inline tex" alt="p" src="Convex%20hull%20trick%20-%20PEGWiki_files/83878c91171338902e0fe0fb97a8c47a.png"> are independent of <img class="mwe-math-fallback-image-inline tex" alt="n" src="Convex%20hull%20trick%20-%20PEGWiki_files/7b8b965ad4bca0e41ab51de7b31363a1.png">, as required.
+</p><p>Unlike in task "acquire", we are interested in building the 
+"upper envelope". We notice that the slope of the "maximal" line 
+increases as <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png"> increases. Since the problem statement indicates <img class="mwe-math-fallback-image-inline tex" alt="a &lt; 0" src="Convex%20hull%20trick%20-%20PEGWiki_files/cf8298b0e273301afdd921e7e4cf6c2b.png">, the slope of each line is positive. 
+</p><p>Suppose <img class="mwe-math-fallback-image-inline tex" alt="k_2 &gt; k_1" src="Convex%20hull%20trick%20-%20PEGWiki_files/2b58751adb6e9dcc7060a9a2248aeac6.png">. For <img class="mwe-math-fallback-image-inline tex" alt="k_1" src="Convex%20hull%20trick%20-%20PEGWiki_files/de83b4778b8582d6b501555da17bd8e7.png"> we have slope <img class="mwe-math-fallback-image-inline tex" alt="m_1 = -2a \sigma(k_1)" src="Convex%20hull%20trick%20-%20PEGWiki_files/f281099462dc30e0b7645ad79f095cb6.png">. For <img class="mwe-math-fallback-image-inline tex" alt="k_2" src="Convex%20hull%20trick%20-%20PEGWiki_files/565916fdc4f0364b33ce9c7f270984a2.png"> we have slope <img class="mwe-math-fallback-image-inline tex" alt="m_2 = -2a \sigma(k_2)" src="Convex%20hull%20trick%20-%20PEGWiki_files/853b450dcc208be16dd715c9ef758f25.png">. But <img class="mwe-math-fallback-image-inline tex" alt="\sigma(k_2) &gt; \sigma(k_1)" src="Convex%20hull%20trick%20-%20PEGWiki_files/a2768496adbcad3063a7621247da86ad.png">, 
+and since the given sequence is positive, so <img class="mwe-math-fallback-image-inline tex" alt="m_2 &gt; m_1" src="Convex%20hull%20trick%20-%20PEGWiki_files/2806eaf84329661fc58923c797a8f865.png">. We conclude that lines are added to our data structure in increasing order of slope.
+</p><p>Since <img class="mwe-math-fallback-image-inline tex" alt="\sigma(n) &gt; \sigma(n-1)" src="Convex%20hull%20trick%20-%20PEGWiki_files/5752927cd27b5d770b56be11fc61c55a.png">, query values are given in increasing order and a <a href="http://wcipeg.com/wiki/index.php?title=Pointer_walk&amp;action=edit&amp;redlink=1" class="new" title="Pointer walk (page does not exist)">pointer walk</a> suffices (it is not necessary to use binary search.)
+</p>
+<h2><span class="mw-headline" id="Fully_dynamic_variant">Fully dynamic variant</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=15" title="Edit section: Fully dynamic variant">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The convex hull trick is easy to implement when all insertions are 
+given before all queries (offline version) or when each new line 
+inserted has a lower slope than any line currently in the envelope. 
+Indeed, by using a deque, we can easily allow insertion of lines with 
+higher slope than any other line as well. However, in some applications,
+ we might have no guarantee of either condition holding. That is, each 
+new line to be added may have any slope whatsoever, and the insertions 
+may be interspersed with queries, so that sorting the lines by slope 
+ahead of time is impossible, and scanning through an array to find the 
+lines to be removed could take linear time per insertion</p>
+<p>It turns out, however, that it is possible to support arbitrary 
+insertions in amortized logarithmic time. To do this, we store the lines
+ in an ordered dynamic set (such as C++'s <code>std::set</code>). Each line possesses the attributes of slope and y-intercept, the former being the key, as well as an extra <img class="mwe-math-fallback-image-inline tex" alt="left" src="Convex%20hull%20trick%20-%20PEGWiki_files/811882fecd5c7618d7099ebbd39ea254.png"> field, the minimum <img class="mwe-math-fallback-image-inline tex" alt="x" src="Convex%20hull%20trick%20-%20PEGWiki_files/9dd4e461268c8034f5c8564e155c67a6.png">-coordinate
+ at which this line is the lowest in the set. To insert a new line, we 
+merely insert it into its correct position in the set, and then all the 
+lines to be removed, if any, are contiguous with it. The procedure is 
+then largely the same as for the case in which we always inserted lines 
+of minimal slope: if the line to be added is <img class="mwe-math-fallback-image-inline tex" alt="l_3" src="Convex%20hull%20trick%20-%20PEGWiki_files/816882dd52beaf495d44f74c8c510200.png">, the line to the left is <img class="mwe-math-fallback-image-inline tex" alt="l_2" src="Convex%20hull%20trick%20-%20PEGWiki_files/c7b5cb501695b127a4a5203ecdf63d70.png">, and the line to the left of that is <img class="mwe-math-fallback-image-inline tex" alt="l_1" src="Convex%20hull%20trick%20-%20PEGWiki_files/e6c5419e04a1206d2b1ba0ec48009362.png">, then we check if the <img class="mwe-math-fallback-image-inline tex" alt="l_1" src="Convex%20hull%20trick%20-%20PEGWiki_files/e6c5419e04a1206d2b1ba0ec48009362.png">-<img class="mwe-math-fallback-image-inline tex" alt="l_3" src="Convex%20hull%20trick%20-%20PEGWiki_files/816882dd52beaf495d44f74c8c510200.png"> intersection is to the left of the <img class="mwe-math-fallback-image-inline tex" alt="l_1" src="Convex%20hull%20trick%20-%20PEGWiki_files/e6c5419e04a1206d2b1ba0ec48009362.png">-<img class="mwe-math-fallback-image-inline tex" alt="l_2" src="Convex%20hull%20trick%20-%20PEGWiki_files/c7b5cb501695b127a4a5203ecdf63d70.png"> intersection; if so, <img class="mwe-math-fallback-image-inline tex" alt="l_2" src="Convex%20hull%20trick%20-%20PEGWiki_files/c7b5cb501695b127a4a5203ecdf63d70.png"> is discarded and we repeat; similarly, if lines <img class="mwe-math-fallback-image-inline tex" alt="l_4" src="Convex%20hull%20trick%20-%20PEGWiki_files/8b6240e1bf6a6663aa00355e31574977.png"> and <img class="mwe-math-fallback-image-inline tex" alt="l_5" src="Convex%20hull%20trick%20-%20PEGWiki_files/77e1742e7ecd2fb547ae38efed7ef876.png"> are on the right, then <img class="mwe-math-fallback-image-inline tex" alt="l_4" src="Convex%20hull%20trick%20-%20PEGWiki_files/8b6240e1bf6a6663aa00355e31574977.png"> can be removed if the <img class="mwe-math-fallback-image-inline tex" alt="l_3" src="Convex%20hull%20trick%20-%20PEGWiki_files/816882dd52beaf495d44f74c8c510200.png">-<img class="mwe-math-fallback-image-inline tex" alt="l_5" src="Convex%20hull%20trick%20-%20PEGWiki_files/77e1742e7ecd2fb547ae38efed7ef876.png"> intersection is to the left of the <img class="mwe-math-fallback-image-inline tex" alt="l_3" src="Convex%20hull%20trick%20-%20PEGWiki_files/816882dd52beaf495d44f74c8c510200.png">-<img class="mwe-math-fallback-image-inline tex" alt="l_4" src="Convex%20hull%20trick%20-%20PEGWiki_files/8b6240e1bf6a6663aa00355e31574977.png"> intersection, and this too is performed repeatedly until no more lines are to be discarded. We compute the new <img class="mwe-math-fallback-image-inline tex" alt="left" src="Convex%20hull%20trick%20-%20PEGWiki_files/811882fecd5c7618d7099ebbd39ea254.png"> values (for <img class="mwe-math-fallback-image-inline tex" alt="l_3" src="Convex%20hull%20trick%20-%20PEGWiki_files/816882dd52beaf495d44f74c8c510200.png">, it is the <img class="mwe-math-fallback-image-inline tex" alt="l_2" src="Convex%20hull%20trick%20-%20PEGWiki_files/c7b5cb501695b127a4a5203ecdf63d70.png">-<img class="mwe-math-fallback-image-inline tex" alt="l_3" src="Convex%20hull%20trick%20-%20PEGWiki_files/816882dd52beaf495d44f74c8c510200.png"> intersection, and for <img class="mwe-math-fallback-image-inline tex" alt="l_4" src="Convex%20hull%20trick%20-%20PEGWiki_files/8b6240e1bf6a6663aa00355e31574977.png">, it is the <img class="mwe-math-fallback-image-inline tex" alt="l_3" src="Convex%20hull%20trick%20-%20PEGWiki_files/816882dd52beaf495d44f74c8c510200.png">-<img class="mwe-math-fallback-image-inline tex" alt="l_4" src="Convex%20hull%20trick%20-%20PEGWiki_files/8b6240e1bf6a6663aa00355e31574977.png"> intersection).</p>
+<p>To handle queries, we keep <i>another</i> set, storing the same data but this time ordered by the <img class="mwe-math-fallback-image-inline tex" alt="left" src="Convex%20hull%20trick%20-%20PEGWiki_files/811882fecd5c7618d7099ebbd39ea254.png"> value. When we insert or remove lines from that set (or update, in the case of <img class="mwe-math-fallback-image-inline tex" alt="l_4" src="Convex%20hull%20trick%20-%20PEGWiki_files/8b6240e1bf6a6663aa00355e31574977.png"> above), we use the <img class="mwe-math-fallback-image-inline tex" alt="left" src="Convex%20hull%20trick%20-%20PEGWiki_files/811882fecd5c7618d7099ebbd39ea254.png">
+ value from the element in that set to associate it with an element in 
+this one. Whenever a query is made, therefore, all we have to do is to 
+find the greatest <img class="mwe-math-fallback-image-inline tex" alt="left" src="Convex%20hull%20trick%20-%20PEGWiki_files/811882fecd5c7618d7099ebbd39ea254.png"> value in this set that is less than the query value; the corresponding line is the optimal one .</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=16" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Brucker, P. (1995). Efficient algorithms for some path partitioning problems. <i>Discrete Applied Mathematics</i>, 62(1-3), 77-85.</li>
+<li> Christiano, Paul. (2007). Land acquisition. Retrieved from an archived copy of the competition problem set at <a rel="nofollow" class="external free" href="http://tjsct.wikidot.com/usaco-mar08-gold">http://tjsct.wikidot.com/usaco-mar08-gold</a></li>
+<li> Peng, Richard. (2008). USACO MAR08 problem 'acquire' analysis. Retrieved from <a rel="nofollow" class="external free" href="http://ace.delos.com/TESTDATA/MAR08.acquire.htm">http://ace.delos.com/TESTDATA/MAR08.acquire.htm</a></li>
+<li> van den Hooff, Jelle. (2010). Personal communication.</li>
+<li> Wang, Hanson. (2010). Personal communication.</li></ul>
+<h2><span class="mw-headline" id="Code">Code</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=17" title="Edit section: Code">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="http://wcipeg.com/wiki/Convex_hull_trick/acquire.cpp" title="Convex hull trick/acquire.cpp">C++ solution for "acquire"</a></li>
+<li> <a href="http://wcipeg.com/wiki/Convex_hull_trick/commando.cpp" title="Convex hull trick/commando.cpp">C++ solution for "commando"</a></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit&amp;section=18" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a rel="nofollow" class="external text" href="http://www.apio.olympiad.org/2010/">APIO 2010</a></li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.160 seconds
+Real time usage: 0.182 seconds
+Preprocessor visited node count: 1227/1000000
+Preprocessor generated node count: 2676/1000000
+Post‐expand include size: 105/2097152 bytes
+Template argument size: 23/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    6.847      1 - -total
+100.00%    6.847      1 - Template:Problem
+ 61.65%    4.221      1 - Template:JudgeRoot
+ 29.85%    2.044      1 - Template:Root
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:68-0!*!0!!en!5!*!math=0 and timestamp 20160608095006 and revision id 1900
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;oldid=1900">http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;oldid=1900</a>"					</div>
+													<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://wcipeg.com/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="http://wcipeg.com/wiki/Category:Algorithms" title="Category:Algorithms">Algorithms</a></li><li><a href="http://wcipeg.com/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="http://wcipeg.com/wiki/index.php?title=Special:UserLogin&amp;returnto=Convex+hull+trick&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="http://wcipeg.com/wiki/index.php?title=Special:UserLogin&amp;returnto=Convex+hull+trick" title="You are encouraged to log in; however, it is not mandatory [Alt+Shift+o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="http://wcipeg.com/wiki/Convex_hull_trick" title="View the content page [Alt+Shift+c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk"><span><a href="http://wcipeg.com/wiki/Talk:Convex_hull_trick" title="Discussion about the content page [Alt+Shift+t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 tabindex="0" id="p-variants-label"><span>Variants</span><a tabindex="-1" href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="http://wcipeg.com/wiki/Convex_hull_trick">Read</a></span></li>
+															<li id="ca-edit"><span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=edit" title="You can edit this page. Please use the preview button before saving [Alt+Shift+e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=history" title="Past revisions of this page [Alt+Shift+h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div style="" id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 tabindex="0" id="p-cactions-label"><span>More</span><a tabindex="-1" href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/wiki/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input autocomplete="off" tabindex="1" name="search" placeholder="Search" title="Search PEGWiki [Alt+Shift+f]" accesskey="f" id="searchInput" type="search"><input value="Special:Search" name="title" type="hidden"><input name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" type="submit">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="http://wcipeg.com/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="http://wcipeg.com/wiki/Main_Page" title="Visit the main page [Alt+Shift+z]" accesskey="z">Main page</a></li>
+													<li id="n-Index"><a href="http://wcipeg.com/wiki/Special:AllPages">Index</a></li>
+													<li id="n-recentchanges"><a href="http://wcipeg.com/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [Alt+Shift+r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://wcipeg.com/wiki/Special:Random" title="Load a random page [Alt+Shift+x]" accesskey="x">Random page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="http://wcipeg.com/wiki/Special:WhatLinksHere/Convex_hull_trick" title="A list of all wiki pages that link here [Alt+Shift+j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="http://wcipeg.com/wiki/Special:RecentChangesLinked/Convex_hull_trick" title="Recent changes in pages linked from this page [Alt+Shift+k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="http://wcipeg.com/wiki/Special:SpecialPages" title="A list of all special pages [Alt+Shift+q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;printable=yes" rel="alternate" title="Printable version of this page [Alt+Shift+p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;oldid=1900" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="http://wcipeg.com/wiki/index.php?title=Convex_hull_trick&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 11 November 2015, at 05:14.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Attribution 3.0 Unported</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://wcipeg.com/wiki/PEGWiki:Privacy_policy" title="PEGWiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://wcipeg.com/wiki/PEGWiki:About" title="PEGWiki:About">About PEGWiki</a></li>
+											<li id="footer-places-disclaimer"><a href="http://wcipeg.com/wiki/PEGWiki:General_disclaimer" title="PEGWiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by/3.0/"><img src="Convex%20hull%20trick%20-%20PEGWiki_files/88x31.png" alt="Attribution 3.0 Unported" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="http://www.mediawiki.org/"><img src="Convex%20hull%20trick%20-%20PEGWiki_files/poweredby_mediawiki_88x31.html" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://wcipeg.com/wiki/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="Convex%20hull%20trick%20-%20PEGWiki_files/load.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":103});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

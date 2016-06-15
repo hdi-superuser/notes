@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="http://vnoi.info/library/favicon.ico">
+
+  <title>
+    
+  Chuyên đề số học - Nguyễn Minh Hiếu - VNOI
+
+  </title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/bootstrap.css" rel="stylesheet">
+  <link href="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/jquery-ui.css" rel="stylesheet">
+  <link href="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/jquery-ui_002.css" rel="stylesheet">
+  <link href="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/base.css" rel="stylesheet">
+  <!-- highlightjs -->
+  <link href="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/highlightjs_agate.css" rel="stylesheet">
+
+  <!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->
+  <!--<link href="offcanvas.static" rel="stylesheet">-->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <!-- jGrowl -->
+  <link rel="stylesheet" type="text/css" href="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/jquery.css">
+  
+  
+  <!-- Google analytics -->
+  <script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/sdk.js" id="facebook-jssdk"></script><script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/analytics.js" async=""></script><script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-61806804-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+<style>.cke{visibility:hidden;}</style><script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/config_002.js" type="text/javascript"></script><link href="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/editor_gecko.css" type="text/css" rel="stylesheet"><script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/en.js" type="text/javascript"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/styles.js" type="text/javascript"></script><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/highlight.js" type="text/javascript"></script><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Main; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?rev=2.6.1') format('opentype'); font-weight: bold}
+@font-face {font-family: MathJax_Main; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?rev=2.6.1') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Math; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?rev=2.6.1') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?rev=2.6.1') format('woff'), url('https://cdn.mathjax.org/mathjax/2.6-latest/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?rev=2.6.1') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+<body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div style="display: none;" id="MathJax_Message"></div>
+  <!-- Start of FB plugin -->
+  <div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="http://staticxx.facebook.com/connect/xd_arbiter.php?version=42#channel=f3aac1b23325254&amp;origin=http%3A%2F%2Fvnoi.info" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0"></iframe><iframe src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/xd_arbiter_002.html" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=449532395210446";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <!-- End of FB plugin -->
+  <div class="body-wrapper">
+    
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+
+    <div class="navbar-header" style="margin-left: 0.5em">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="http://vnoi.info/" id="logo-text">VNOI</a>
+    </div>
+
+    <div id="navbar" class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
+        
+        <li id="navbar_home"><a href="http://vnoi.info/"><span class="fa-fw glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
+        <li id="navbar_problems"><a href="http://vnoi.info/problems/list/"><span class="fa-fw glyphicon glyphicon-th-list" aria-hidden="true"></span>Đề bài</a></li>
+        <li id="navbar_contests"><a href="http://vnoi.info/contests/list/"><span class="fa-fw glyphicon glyphicon-time" aria-hidden="true"></span>Kỳ thi</a></li>
+        <li id="navbar_forum"><a href="http://vnoi.info/forum/"><span class="fa-fw glyphicon glyphicon-comment" aria-hidden="true"></span>Diễn đàn</a></li>
+        <li class="active" id="navbar_library"><a href="http://vnoi.info/library/"><span class="fa-fw glyphicon glyphicon-book" aria-hidden="true"></span>Thư viện</a></li>
+        
+        <li class="dropdown" id="navbar_profile">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa-fw glyphicon glyphicon-user icon"></span>huynhduy_hmd&nbsp;<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://vnoi.info/user/profile/huynhduy_hmd/"><span class="fa-fw glyphicon glyphicon-user icon"></span>Trang cá nhân</a></li>
+            <li><a href="http://vnoi.info/message/"><span class="fa-fw glyphicon glyphicon-envelope" aria-hidden="true"></span>Tin nhắn</a></li>
+            <li><a href="http://vnoi.info/user/logout"><span class="fa-fw glyphicon glyphicon-log-out"></span>Đăng xuất</a></li>
+          </ul>
+        </li>
+        
+
+        
+          <li id="navbar_noti"><a href="http://vnoi.info/notification/">
+            <span class="glyphicon glyphicon-bell globe-noti"></span>
+            <span class="badge badge-noti">0</span>
+          </a></li>
+        
+
+        
+      </ul>
+    </div>
+    <!-- /.nav-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- /.navbar -->
+
+    <div class="container" id="body-container">
+      
+      
+      <ol id="breadcrumbs" class="breadcrumb">
+        
+  
+    <li><a href="http://vnoi.info/library/">Thư viện</a></li>
+  
+  <li><a href="http://vnoi.info/library/82/">Số học</a></li>
+  <li>Chuyên đề số học - Nguyễn Minh Hiếu</li>
+
+      </ol>
+      
+      
+
+  
+  <div class="grid">
+    
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-5021" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(/media/avatars/only_love97/resized/80/88_W3Gf1fA.jpg) no-repeat">
+          <a href="http://vnoi.info/user/profile/only_love97/">
+            <img src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/88_W3Gf1fA.jpg" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/only_love97/"><span class="user-yellow">only_love97</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-primary arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/only_love97/" class="post-username">
+                only_love97
+              </a>
+              
+              <a href="#post-5021"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              11&nbsp;tháng, 1&nbsp;tuần trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+          <div class="post-resize-picture"><h2>Bài 1 : Amount of Degrees</h2><p>&nbsp;Một số A gọi là có bậc K đối với cơ số B nếu như :&nbsp;A = B<sup>x1</sup>&nbsp;+ B<sup>x2</sup>&nbsp;+ … + B<sup>xk</sup>&nbsp;(trong đó&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2260;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2260;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2260;&lt;/mo&gt;&lt;mo&gt;.&lt;/mo&gt;&lt;mo&gt;.&lt;/mo&gt;&lt;mo&gt;.&lt;/mo&gt;&lt;mo&gt;&amp;#x2260;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-1-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 13.232em; display: inline-block;" role="math" id="MathJax-Span-1" class="math"><span style="display: inline-block; position: relative; width: 10.011em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.394em, 1010.01em, 2.65em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-2" class="mrow"><span id="MathJax-Span-3" class="msubsup"><span style="display: inline-block; position: relative; width: 1.001em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000.52em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-4" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-5" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-6" class="mo">≠</span><span style="padding-left: 0.278em;" id="MathJax-Span-7" class="msubsup"><span style="display: inline-block; position: relative; width: 1.001em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000.52em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-8" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-9" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-10" class="mo">≠</span><span style="padding-left: 0.278em;" id="MathJax-Span-11" class="msubsup"><span style="display: inline-block; position: relative; width: 1.001em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000.52em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-12" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-13" class="mn">3</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-14" class="mo">≠</span><span style="font-family: MathJax_Main;" id="MathJax-Span-15" class="mo">.</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-16" class="mo">.</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-17" class="mo">.</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-18" class="mo">≠</span><span style="padding-left: 0.278em;" id="MathJax-Span-19" class="msubsup"><span style="display: inline-block; position: relative; width: 1.015em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000.52em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-20" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-21" class="mi">k</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.355em; border-left: 0px solid; width: 0px; height: 1.372em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>1</mn></msub><mo>≠</mo><msub><mi>x</mi><mn>2</mn></msub><mo>≠</mo><msub><mi>x</mi><mn>3</mn></msub><mo>≠</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>≠</mo><msub><mi>x</mi><mi>k</mi></msub></math></span></span><script id="MathJax-Element-1" type="math/tex">x_1 \neq x_2 \neq x_3 \neq ... \neq x_k</script></span>)</p><p>Ví dụ :</p><ul><li>17 có bậc 2 đối với cơ số 2 vì 17 = 2<sup>4</sup>&nbsp;+ 2<sup>0</sup>&nbsp;.</li><li>151 có bậc 3 đối với cơ số 5 vì 151 = 5<sup>3</sup>&nbsp;+ 5<sup>2</sup>&nbsp;+ 5<sup>0</sup>.</li></ul><p>Yêu cầu : Cho trước 1 đoạn [X,Y] . Hãy xác định xem trong đoạn này có bao nhiêu số có bậc K đối với cơ số B.</p><p>Giới hạn :</p><ul><li><span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;Y&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;msup&gt;&lt;mn&gt;10&lt;/mn&gt;&lt;mn&gt;9&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-2-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 9.875em; display: inline-block;" role="math" id="MathJax-Span-22" class="math"><span style="display: inline-block; position: relative; width: 7.468em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.246em, 1007.47em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-23" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-24" class="mn">1</span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-25" class="mo">≤</span><span style="font-family: MathJax_Math; font-style: italic; padding-left: 0.278em;" id="MathJax-Span-26" class="mi">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.024em;"></span></span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-27" class="mo">≤</span><span style="font-family: MathJax_Math; font-style: italic; text-rendering: optimizelegibility; padding-left: 0.278em;" id="MathJax-Span-28" class="mi">Y<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.182em;"></span></span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-29" class="mo">≤</span><span style="padding-left: 0.278em;" id="MathJax-Span-30" class="msubsup"><span style="display: inline-block; position: relative; width: 1.429em; height: 0px;"><span style="position: absolute; clip: rect(3.176em, 1000.96em, 4.189em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Main;" id="MathJax-Span-31" class="mn">10</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -4.397em; left: 1em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-32" class="mn">9</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.465em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>≤</mo><mi>X</mi><mo>≤</mo><mi>Y</mi><mo>≤</mo><msup><mn>10</mn><mn>9</mn></msup></math></span></span><script id="MathJax-Element-2" type="math/tex">1 \leq X \leq Y \leq 10^9</script></span></li><li><span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;K&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;20&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;9&lt;/mn&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-3-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 12.946em; display: inline-block;" role="math" id="MathJax-Span-33" class="math"><span style="display: inline-block; position: relative; width: 9.794em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.427em, 1009.75em, 2.629em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-34" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-35" class="mn">1</span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-36" class="mo">≤</span><span style="font-family: MathJax_Math; font-style: italic; padding-left: 0.278em;" id="MathJax-Span-37" class="mi">K<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.04em;"></span></span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-38" class="mo">≤</span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-39" class="mn">20</span><span style="font-family: MathJax_Main;" id="MathJax-Span-40" class="mo">,</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-41" class="mn">2</span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-42" class="mo">≤</span><span style="font-family: MathJax_Math; font-style: italic; padding-left: 0.278em;" id="MathJax-Span-43" class="mi">B</span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-44" class="mo">≤</span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-45" class="mn">9</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.328em; border-left: 0px solid; width: 0px; height: 1.3em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>≤</mo><mi>K</mi><mo>≤</mo><mn>20</mn><mo>,</mo><mn>2</mn><mo>≤</mo><mi>B</mi><mo>≤</mo><mn>9</mn></math></span></span><script id="MathJax-Element-3" type="math/tex">1 \leq K \leq 20, 2 \leq B \leq 9</script></span></li><li>Bộ nhớ : 200KB.</li><li>Time limit : 1s.</li></ul><p>Input</p><p>Gồm 4 số nguyên&nbsp;X,&nbsp;Y,&nbsp;K và&nbsp; B</p><p>Output</p><p>Gồm 1 số duy nhất là kết quả tìm được .</p><p>Ví dụ</p><p>Input</p><p>15 20 2 2</p><p>Output</p><p>3</p><p>Giải thích : Đó là các số</p><ul><li>17 = 2<sup>4</sup>&nbsp;+ 2<sup>0</sup><sup>&nbsp;</sup>.</li><li>18 = 2<sup>4</sup>&nbsp;+ 2<sup>1</sup>.</li><li>20 = 2<sup>4</sup>&nbsp;+ 2<sup>2</sup>.&nbsp;</li></ul><p><strong>Thuật giải :</strong></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ta
+ sẽ đưa bài toán này về một bài toán nhỏ hơn đó là cho biết trong đoạn 
+[1,A] có bao nhiêu số có bậc K đối với cơ số B.</p><p>Với mỗi giá trị A ta đều xác định được B<sup>n</sup>&nbsp;sao cho B<sup>n+1</sup>&nbsp;&gt; A . Áp dụng tính chất:&nbsp;&nbsp;B<sup>n</sup>&nbsp;&nbsp;&gt; B<sup>n-1</sup>&nbsp;+ B<sup>n-2</sup>&nbsp;+ … B<sup>0</sup>&nbsp;&nbsp;→&nbsp;A&nbsp;&nbsp;&gt;&nbsp;&nbsp;B<sup>n-1</sup>&nbsp;+ B<sup>n-2</sup>&nbsp;+ … B<sup>0</sup>.</p><ul><li>Tổng bất kỳ của 1 tổ hợp K phần tử của n&nbsp;phần tử này cũng đều &lt; A ( tức là : A&nbsp;&nbsp;&gt; B<sup>x1</sup>&nbsp;+ B<sup>x2</sup>&nbsp;+ …+ B<sup>xi</sup>&nbsp;+… + B<sup>xk</sup>&nbsp;( với mọi&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-4-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 5.946em; display: inline-block;" role="math" id="MathJax-Span-46" class="math"><span style="display: inline-block; position: relative; width: 4.491em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.444em, 1004.42em, 2.593em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-47" class="mrow"><span id="MathJax-Span-48" class="msubsup"><span style="display: inline-block; position: relative; width: 0.891em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000.52em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-49" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-50" class="mi">i</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-51" class="mo">≤</span><span style="font-family: MathJax_Math; font-style: italic; padding-left: 0.278em;" id="MathJax-Span-52" class="mi">n</span><span style="font-family: MathJax_Main; padding-left: 0.222em;" id="MathJax-Span-53" class="mo">−</span><span style="font-family: MathJax_Main; padding-left: 0.222em;" id="MathJax-Span-54" class="mn">1</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.28em; border-left: 0px solid; width: 0px; height: 1.23em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mi>i</mi></msub><mo>≤</mo><mi>n</mi><mo>−</mo><mn>1</mn></math></span></span><script id="MathJax-Element-4" type="math/tex">x_i \leq n-1</script></span>).</li><li>Như vậy ta đã giải quyết xong vấn đề với các số mà không chứa B<sup>n</sup>, nếu như không chứa B<sup>n</sup>&nbsp;thì số lượng số thoả mãn sẽ = Tổ hợp chập K của n&nbsp;. Ta sẽ tiếp tục giải quyết vấn đề với các số mà có dạng = B<sup>n</sup>&nbsp;+ B<sup>x2</sup>+…+B<sup>xk</sup>.Dễ thấy vấn đề ở đây lại quay về là tìm số lượng các số có bậc (K-1) đối với cơ số B trong đoạn [1,A-B<sup>n</sup>] và không chứa B<sup>n</sup>, vậy thì ở đây ta chỉ cần xác định lại n mà thôi, n(mới) <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-5-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-55" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-56" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-57" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-5" type="math/tex">\leq</script></span>n (cũ) – 1.</li></ul><p>Như vậy bài toán đã được giải quyết. Nói tóm lại đây là một bài khá đặc trưng cho QHĐ = Đệ quy với công thức truy hồi đơn giản :</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cal(A,K,B) = Tổ hợp chập K của N&nbsp;+ Cal(A-B<sup>n</sup>,K-1,B).</p><h2>Bài 2 : Nikifor – 2</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nikifor
+ có một số X nhưng đó không phải là con số mà anh ta cần. Anh ta muốn 
+đổi con số X này lấy con số Y mà anh ta thích. Để đổi được con số Y này 
+anh ta phải chọn ra một cơ số K sao cho ta có thể đạt được số Y bằng 
+cách xoá đi một vài chữ số của số X trong biểu diễn của hệ cơ số K .</p><p>Ví dụ : X = 19 , Y = 4 , K = 3.</p><ul><li>&nbsp;Biểu diễn của X trong hệ cơ số 3 = 201</li><li>&nbsp;Biểu diễn của Y trong hệ cơ số 3 = 21</li></ul><p>Vậy ta có thể đạt được số Y bằng cách xoá đi số 0 trong biểu diễn của số X .</p><p>Yêu cầu : Hãy tìm cơ số K nhỏ nhất có thể được .</p><p>Giới hạn</p><ul><li>1 <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-6-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-58" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-59" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-60" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-6" type="math/tex">\leq</script></span>&nbsp;X , Y&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-7-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-61" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-62" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-63" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-7" type="math/tex">\leq</script></span>&nbsp;10<sup>6</sup>.</li><li>Time limit 1 s , bộ nhớ 200 KB.</li></ul><p>Input</p><p>Gồm hai số nguyên&nbsp;X và&nbsp;Y</p><p>Output</p><p>Nếu tồn tại K thì ghi ra K nhỏ nhất , nếu không tồn tại thì ghi ra “No Solution”.</p><p>(&nbsp;&nbsp;Lưu ý số K có thể <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2265;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-8-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-64" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-65" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-66" class="mo">≥</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≥</mo></math></span></span><script id="MathJax-Element-8" type="math/tex">\geq</script></span>&nbsp;10 , không nhất thiết là nhỏ hơn 10 )</p><p>Ví dụ</p><p>Input</p><p>19&nbsp;&nbsp;&nbsp;&nbsp;4</p><p>Output</p><p>2</p><p><strong>Thuật giải :</strong></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Ta
+ duyệt tất cả các số K từ 2 -&gt; Y . Tuy nhiên điều muốn nói ở đây là 
+làm cách nào để có thể kiểm tra xem với một cơ số K có đáp ứng được yêu 
+cầu hay không một cách nhanh nhất ! Nếu như làm bình thường thì ta sẽ 
+xây dựng được biểu diễn của X, của Y .Nếu xâu con chung dài nhất của X 
+và Y = Y -&gt; Đáp ứng yêu cầu ! Hoặc một cách cải tiến khác cũng đưa về
+ xâu dựa trên nhận xét : xâu con chung dài nhất của X , Y = Y tương 
+đương với các phần tử của Y xuất hiện đúng theo thứ tự này trong xâu X ,
+ tức là xâu con chung dài nhất Y = X<sub>i1</sub>X<sub>i2</sub>…X<sub>ik</sub>&nbsp;thì i1 &lt; i2 &lt; … &lt; ik . -&gt; Ta có thể sủ dụng thuật toán được mô tả sau đây : ( Cải tiến 1 )</p><p>Ok&nbsp;&nbsp;:= True ;</p><p>While Y &lt;&gt; Ø&nbsp;&nbsp;&nbsp;do Begin</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While X[1] &lt;&gt; Y[1] do Begin</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete(X,1,1)
+ ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;&nbsp;X
+ =&nbsp;&nbsp;Ø&nbsp;then Begin</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ok
+ := False ; Exit ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End
+ ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete(X,1,1) ; Delete(Y,1,1) ;</p><p>End ;</p><p>Tuy
+ có cải tiến như vậy nhưng về cơ bản cấp độ của thuật toán là khá cao ( +
+ thời gian tạo xâu ) và không thể chấp nhận được trong thời gian giới 
+hạn là 1 s. Vì vậy ta cần có một thuật toán kiểm tra tốt hơn là đưa về 
+xâu ! Ý tưởng của thuật toán là thay vì đổi ra xâu ta sử dụng phép&nbsp;<strong>div</strong>&nbsp;, nếu như trong hệ cơ số K ta sử dụng phép&nbsp;<strong>div</strong><strong>&nbsp;</strong>K thì cũng giống như ta sử dụng phép&nbsp;<strong>shr</strong><strong>&nbsp;</strong>trong
+ hệ nhị phân ! Nó sẽ dịch chuyển số X về bên phải một chữ số ! Ta áp 
+dụng cải tiến 1 trong trường hợp này là so sánh chữ số cuối cùng chứ 
+không phải chữ số đầu tiên nữa ! Và chữ số cuối cùng của X 
+=&nbsp;&nbsp;X mod K , chữ số cuối cùng của Y = Y mod K . Thủ tục Delete
+ sẽ được thay bằng X = X div K . Như vậy thuật toán với 2 cải tiến này 
+sẽ giảm được rất nhiều thời gian lãng phí do phải tạo xâu, sinh luỹ thừa
+ ! Về mặt thời gian là chạy khá tốt !</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ngoài ra còn một thuật toán có cấp độ O( (logY)<sup>3</sup>&nbsp;) mà ta không đề cập tới ở đây mà sẽ nhắc tới ở một chương khác. Mặc dù vậy với X , Y <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-9-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-67" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-68" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-69" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-9" type="math/tex">\leq</script></span>&nbsp;10<sup>6</sup>&nbsp;thì ta có thể yên tâm là thuật toán này chạy chậm gấp 2,5 lần thuật toán duyệt với 2 cải tiến ở trên !</p><h2>Bài 3 : Central Heating</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trong
+ một trường đại học&nbsp;&nbsp;có một hệ thống N lò sưởi được đánh số từ
+ 1-&gt; N ! N lò sưởi này được điều khiển bởi N kỹ sư được đánh số từ 1 
+-&gt; N ! Mỗi lò sưởi chỉ có 1 công tắc là tắt/bật lò sưởi mà thôi ! Tuy
+ nhiên oái oăm thay là mỗi kỹ sư lại điều khiển 1 vài lò sưởi chứ không 
+phải chỉ 1 lò sưởi! Và khi họ đi làm thì nếu như được chỉ định là trực ở
+ lò sưởi thì họ sẽ đi thay đổi công tắc ở tất cả các lò sưởi mà họ điều 
+khiển, nếu đang bật -&gt; tắt và tắt -&gt; bật. Kỹ sư thứ i sẽ tới vào 
+trường vào lúc i giờ. Ban giám hiệu trường muốn đảm bảo sức khoẻ cho 
+sinh viên nên phải phân công kỹ sư trực sao cho đến giờ thứ N+1 thì tất 
+cả lò sưởi đều đang ở trạng thái bật !</p><p>Yêu cầu : Bạn được thuê 
+giúp đỡ Ban Giám Hiệu của trường ! Hãy chỉ ra xem những kỹ sư phải được 
+chỉ định là trực để đáp ứng yêu cầu của ban giám hiệu là những kỹ sư nào
+ ! Nếu có nhiều phương án thì cho biết phương án mà số kỹ sư bị chỉ định
+ là ít nhất.</p><p>Giới hạn :</p><ul><li>1 <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-10-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-70" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-71" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-72" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-10" type="math/tex">\leq</script></span>&nbsp; N &nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-11-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-73" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-74" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-75" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-11" type="math/tex">\leq</script></span>&nbsp;200.</li><li>Time limit 2 s , bộ nhớ 200 KB</li></ul><p>Input</p><ul><li>Dòng 1 ghi số nguyên N</li><li>N
+ dòng tiếp theo có cấu trúc gồm 1 số Li ( số lò sưởi mà kỹ sư thứ i điều
+ khiển ) và tiếp sau đó là Li số là chỉ số của các lò sưởI mà kỹ sư i 
+điều khiển )</li></ul><p>Output</p><ul><li>Nếu không có phương án thì ghi ra 1 dòng duy nhất : “No solution”. Ngược lại :</li><li>Dòng 1 ghi số K là số kỹ sư tối thiểu được chỉ định</li><li>Dòng 2 gồm K số là chỉ số của các kỹ sư được chỉ định .</li></ul><p>Ví dụ :</p><p>Input</p><p>4</p><p>2 1 2</p><p>3 2 3 4</p><p>1 2</p><p>1 4</p><p>Output</p><p>3</p><p>1 2 3</p><p><strong>Thuật giải :</strong></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Đây là một bài giải hệ phương trình nhị phân khá đơn giản. Ta có thể sử dụng khử Gauss để giải hệ&nbsp;<strong>.</strong><strong>&nbsp;</strong>Nghiệm có số phần tử bằng = 1 ít nhất chính là phương án sử dụng ít kỹ sư nhất ! Cấp độ của khử Gauss vào khoảng O(N<sup>3</sup>) là chấp nhận được.</p><h2>Bài 4 : Simple Calculations</h2><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Có một dãy số thực gồm N+2 phần tử A<sub>0</sub><sub>&nbsp;</sub>, A<sub>1</sub>, … , A<sub>n+1</sub>. Dãy này có tính chất đặc biệt là A[i] =&nbsp;&nbsp;( A[i-1] + A[i+1] ) / 2 – C[i] với i = 1,2,3…,n.</p><p>Yêu cầu : Cho dãy C và A<sub>0</sub>&nbsp;, A<sub>n+1</sub>. Hãy tính A<sub>1</sub>.</p><p>Giới hạn :</p><ul><li>3 <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-12-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-76" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-77" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-78" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-12" type="math/tex">\leq</script></span>&nbsp;N&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-13-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-79" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-80" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-81" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-13" type="math/tex">\leq</script></span>&nbsp;3000.</li><li>-1000&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-14-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-82" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-83" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-84" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-14" type="math/tex">\leq</script></span>&nbsp;Ai , C<sub>i</sub>&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-15-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-85" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-86" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-87" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-15" type="math/tex">\leq</script></span>&nbsp;1000.</li><li>Time limit 1 s , bộ nhớ 200 KB .</li></ul><p>Input</p><p>N</p><p>A<sub>0</sub><sub>&nbsp;</sub>&nbsp;&nbsp;A<sub>n+1</sub></p><p>C<sub>1</sub></p><p>C<sub>2</sub></p><p>…</p><p>C<sub>n</sub></p><p>Output</p><p>A<sub>1</sub><sub>&nbsp;</sub>( Ghi chính xác đến 2 chữ số sau dấu phẩy ) .</p><p>Ví dụ :</p><p>Input</p><p>1</p><p>50.50 25.50</p><p>10.15</p><p>Output</p><p>27.85</p><p><strong>Thuật giải :</strong></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Ta có A(1) = ( A(0) + A(2) ) / 2 – C(1)</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A(2)
+ = ( A(1) + A(3) ) / 2 – C(2)</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;….</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A(n)
+ = ( A(n-1) + A(n+1) ) / 2 – C(n)</p><p>→&nbsp;A(1) + A(2) + … A(n) = ( 
+A(0) + A(n+1)&nbsp;&nbsp;+ A(1) + A(n)&nbsp;&nbsp;) / 2 + A(2) + A(3) + 
+…+A(n-1) – ( C(1) + C(2) + C(3) +…+C(n) ) .</p><p>&nbsp;⇔ &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;A(1) + 
+A(n)&nbsp;&nbsp;&nbsp;&nbsp;= A(0) + A(n+1) – 2*( C(1) + C(2) + C(3) 
++…+C(n) ) .</p><p>Tương tự ta có : A(1) + A(n-1) = A(0) + A(n) – 2*( C(1) + C(2) + C(3) +…+C(n-1) ) .</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;………..</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A(1)
+ + A(1)&nbsp;&nbsp;&nbsp;&nbsp;= A(0) + A(2) – 2* C(1) .</p><p>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp;⇒&nbsp;A(1) * (n+1) = A(0) * n + A(n+1) – 2 *( C(1) + C(2) + C(3) 
++…+C(n) )</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-
+ 2*( C(1) + C(2) + C(3) +…+C(n-1) ) – …- 2*C(1).</p><p>⇒&nbsp; &nbsp; Ta
+ tính được A(1). Cấp độ thuật toán O(n). Cũng với phương pháp này ta có 
+thể tính được tất cả các phần tử của dãy A cũng chỉ với cấp độ O(n).</p><h2>Bài 5 : Nikifor – 3</h2><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Nikifor
+ có một số tự nhiên N. Anh ta là một người rất yêu thích con số 7 ( 
+giống mình ). Bởi vậy con số của anh ta phải là một con số chia hết cho 
+7. Nhưng rất tiếc con số N của anh ta lại chưa phải là bội của 7 . Bây 
+giờ anh ta muốn đổi vị trí của các chữ số của số N sao cho tạo được một 
+số mới mà số này chia hết cho 7. Vì Nikifor là một người rất đặc biệt 
+nên con số N của anh ta cũng rất đặc biệt. Số N này luôn có đủ 4 chữ số 1
+ , 2 , 3 4 trong biểu diễn thập phân của mình ! Hơn nữa nếu số N này đã 
+là bội của 7 rồi thì anh ta vẫn muốn biến đổi để ra được 1 số mới khác 
+cũng chia hết cho 7.</p><p>Yêu cầu : Hãy giúp Nikifor đổi vị trí của các chữ số trong số N sao cho được số mới chia hết cho 7.</p><p>Giới hạn :</p><ul><li>Số N này có không quá 1000 chữ số và có ít nhất 4 chữ số .</li><li>Time limit : 1s , bộ nhớ 200KB.</li></ul><p>Input</p><ul><li>Dòng 1 : 1 số X là số bộ test. ( 1&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-16-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-88" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-89" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-90" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-16" type="math/tex">\leq</script></span>&nbsp;X&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-17-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-91" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-92" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-93" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-17" type="math/tex">\leq</script></span>&nbsp;10000 ).</li><li>X dòng tiếp theo mỗi dòng ghi 1 số N.</li></ul><p>Output</p><p>N dòng ghi ra kết quả của từng test , nếu test nào vô nghiệm thì ghi ra “No solution” ngược lại ghi ra số N sau khi biến đổi .</p><p>Ví dụ :</p><p>Input</p><p>2</p><p>10234</p><p>531234</p><p>Output</p><p>32410</p><p>353241</p><p><strong>Thuật giải :</strong></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Nhận thấy số N luôn có đủ 4 chữ số 1,2,3,4 . Với 4 số này ta có thể tạo thành bất kỳ số dư nào trong các số dư từ 0-&gt;6 :</p><p>Ví dụ : 1234 mod 7 = 2 , 3241 mod 7 = 0 …</p><p>Như
+ vậy ta có một cách làm rất hay cho bài này đó là : đặt tuỳ ý các chữ số
+ # 0 vào đầu sao cho còn dư lại 4 chữ số 1 , 2 , 3 , 4 . Với 4 chữ số 
+này ta sẽ đặt vào tiếp theo , sau cùng mới đặt các chữ số 0. 4 chữ số 
+1,2,3,4 cuối ta sẽ duyệt hoán vị của nó xem hoán vị nào của nó thì số N 
+tạo được sẽ chia hết cho 7. Vì với mỗi số dư R đều có ít nhất 2 hoán vị 
+nên dù N cũng có dạng như trên thì cũng có ít nhất 1 số khác cũng cùng 
+dạng này nữa -&gt; Bài toán không bao giờ vô nghiệm ! Vì&nbsp;&nbsp;4! =
+ 24 -&gt; Chạy rất nhanh !</p><h2>Bài 6 : Pinocchio</h2><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Cha của Pinocchio muốn làm lại cho Pinocchio một cái mũi mới . Ông có N thanh gỗ , mỗi thanh gỗ có độ dài A<sub>i</sub>. Là người yêu thích toán học ông ta đưa ra một giải thuật sau để lấy ra thanh gỗ có độ dài cần thiết :</p><ul><li>Nếu còn lại 1 thanh gỗ thì ông ta sẽ lấy thanh gỗ này làm mũi cho Pinocchio.</li><li>Nếu còn <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2265;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-18-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-94" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-95" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-96" class="mo">≥</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≥</mo></math></span></span><script id="MathJax-Element-18" type="math/tex">\geq</script></span>&nbsp;2 thanh gỗ thì ông ta sẽ làm như sau :</li><li>Chọn ra 2 thanh gỗ i , j sao cho A<sub>i</sub>&nbsp;và A<sub>j</sub>&nbsp;có độ dài nhỏ nhất trong số N thanh.</li><li>Nếu A<sub>i&nbsp;</sub><sub>&nbsp;</sub>= A<sub>j</sub>&nbsp;thì vứt bỏ một thanh đi, lại quay về bước 1</li><li>Nếu Ai &lt; A<sub>j</sub>&nbsp;thì ta sẽ cắt thanh A<sub>j</sub>&nbsp;đi một đoạn = Ai ( tức là A<sub>j</sub>&nbsp;= A<sub>j</sub>&nbsp;– Ai).</li></ul><p>Quay lại bước 1.</p><p>Yêu cầu : Hãy tính xem độ dài mà thanh gỗ ông ta nhận được sẽ là bao nhiêu.</p><p>Giới hạn :</p><ul><li>1 <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-19-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-97" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-98" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-99" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-19" type="math/tex">\leq</script></span>N&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-20-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-100" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-101" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-102" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-20" type="math/tex">\leq</script></span>100000.</li><li>1 <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-21-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-103" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-104" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-105" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-21" type="math/tex">\leq</script></span>&nbsp;A<sub>i</sub>&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-22-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-106" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-107" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-108" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-22" type="math/tex">\leq</script></span>10<sup>9</sup>.</li><li>Time limit 1s , bộ nhớ 200 KB.</li></ul><p>Input</p><p>N</p><p>A<sub>1</sub></p><p>A<sub>2</sub></p><p>…</p><p>A<sub>n</sub></p><p>Output</p><p>Gồm 1 số duy nhất X là độ dài thanh gỗ đạt được.</p><p>Ví dụ:</p><p>Input</p><p>3</p><p>2</p><p>3</p><p>4</p><p>Output</p><p>1</p><p><strong>Thuật giải :</strong></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dễ
+ dàng CM được đó chính là ước chung lớn nhất của N số . Ta có thể dùng 
+thuật toán Oclit. Cấp độ tính toán của bài này là O(n).</p><h2>Bài 7 : Button</h2><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Trong
+ đại hội thể thao Olympic năm 3000, người ta quyết định đưa môn bốc sỏi 
+vào thi đấu. Trận đấu sẽ gồm 2 người thi đấu và có K viên sỏi , đến lượt
+ người nào chơi thì được bốc không quá L viên ! Ai đến lượt mình mà 
+không còn gì để bốc nữa thì sẽ thua !&nbsp;&nbsp;Đấu thủ thứ nhất được 
+quyền chọn xem số K sẽ là bao nhiêu ! Còn đấu thủ thứ 2 được quyền chọn 
+xem số L sẽ là bao nhiêu ! Giả sử đã biết được người thứ nhất chọn số K 
+là bao nhiêu ,bạn hãy giúp người thứ 2 chọn ra số L nhỏ nhất sao cho 
+người thứ 2 chắc chắn giành phần thắng và số L &gt; 1.</p><p>Giới hạn :&nbsp;</p><ul><li>2 &lt; K &lt; 10<sup>9</sup>.</li><li>Time limit 1s , bộ nhớ 200KB.</li></ul><p>Input</p><p>K</p><p>Output</p><p>L</p><p>Ví dụ :</p><p>Input</p><p>6</p><p>Output</p><p>2</p><p><strong>Thuật giải :</strong></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Đây
+ là một bài toán trò chơi cổ điển, 1 số L để người 2 chắc chắn thắng thì
+ K phải chia hết cho (L+1). Vậy thì đó sẽ là ước nhỏ nhất của K ( mà 
+&gt; 2 ) – 1. Khi tìm ước cần chú ý đến 1 số trường hợp đặc biệt là 14 
+chẳng hạn , kết quả trả ra sẽ là 6 nhưng mà do không cẩn thận ( có thể 
+là do tìm ước = hàm kiểm tra nguyên tố lấy Sqrt trong khi Sqrt(14) = 
+3.7416 nên sẽ dẫn tới sai xót ! ).</p><h2>Bài 8 : Combinations</h2><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Yêu cầu : Rất đơn giản ! Hãy tính xem C có bao nhiêu ước nguyên tố với C được tính = CT :</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;!&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo&gt;!&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;!&lt;/mo&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-23-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 7.375em; display: inline-block;" role="math" id="MathJax-Span-109" class="math"><span style="display: inline-block; position: relative; width: 5.574em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.185em, 1005.57em, 3.054em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-110" class="mrow"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-111" class="mi">C<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.045em;"></span></span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-112" class="mo">=</span><span style="padding-left: 0.278em;" id="MathJax-Span-113" class="mfrac"><span style="display: inline-block; position: relative; width: 3.279em; height: 0px; margin-right: 0.12em; margin-left: 0.12em;"><span style="position: absolute; clip: rect(3.336em, 1000.57em, 4.174em, -1000em); top: -4.424em; left: 50%; margin-left: -0.31em;"><span id="MathJax-Span-114" class="mrow"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-115" class="mi">n</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-116" class="mo">!</span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.312em, 1003.1em, 4.343em, -1000em); top: -3.563em; left: 50%; margin-left: -1.58em;"><span id="MathJax-Span-117" class="mrow"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-118" class="mi">m</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-119" class="mo">!</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-120" class="mo">(</span><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-121" class="mi">n</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-122" class="mo">−</span><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-123" class="mi">m</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-124" class="mo">)</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-125" class="mo">!</span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(0.852em, 1003.28em, 1.245em, -1000em); top: -1.302em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 3.279em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.082em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.888em; border-left: 0px solid; width: 0px; height: 2.181em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mo>!</mo></mrow><mrow><mi>m</mi><mo>!</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>m</mi><mo stretchy="false">)</mo><mo>!</mo></mrow></mfrac></math></span></span><script id="MathJax-Element-23" type="math/tex">C=\frac{n!}{m!(n-m)!} </script></span></p><p>Tất nhiên ở đây N và M là 2 số cho trước .</p><p>Giới hạn :</p><ul><li>1&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-24-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-126" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-127" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-128" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-24" type="math/tex">\leq</script></span>&nbsp;M&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-25-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-129" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-130" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-131" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-25" type="math/tex">\leq</script></span>&nbsp;N&nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-26-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-132" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-133" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-134" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-26" type="math/tex">\leq</script></span>&nbsp;60000.</li><li>Time limit 1s , Bộ nhớ 200KB.</li></ul><p>Input</p><p>N M</p><p>Output</p><p>Gồm 1 số duy nhất là số ước của C.</p><p>Ví dụ :</p><p>Input</p><p>7 3</p><p>Output</p><p>2</p><p>( Giải thích : C = 35 = 5*7 ).</p><p><strong>Thuật giải :</strong></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Ta phân tích N! , M! thành tích của các số nguyên tố .</p><p>→&nbsp; &nbsp;N! = 2<sup>x1</sup>&nbsp;* 3<sup>x2</sup>&nbsp;* …</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M! = 2<sup>y1</sup>&nbsp;* 3<sup>y2</sup>&nbsp;* …</p><p>(N-M)!= 2<sup>z1</sup>&nbsp;* 3<sup>z2</sup>*…</p><p>→&nbsp;C = 2<sup>x1-y1-z1</sup>&nbsp;* 3<sup>x2-y2-z2</sup>&nbsp;* ….</p><p>Ta
+ chỉ việc đếm thôi , với xi-yi-zi &gt; 0 thì ta tăng số phần tử tìm thấy
+ lên 1. Thuật toán hoàn toàn rất đơn giản. Tuy nhiên để thuật toán chạy 
+nhanh ta nên áp dụng công thức Lagrăng như sau :</p><p>Số mũ của số nguyên tố P trong N! = [N/P] + [N/(P<sup>2</sup>)] + … [N/(P<sup>k</sup>)].</p><p>với [q] = phần nguyên của số q.</p><h2>Bài 9 : Fibonacci sequence&nbsp;<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong></h2><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Có một dãy số dài vô hạn thoả mãn tính chất Fibonacci .</p><p>Đó là : F[i] = F[i-1] + F[i-2]. ( Với mọi i thuộc Z ).</p><p>Yêu cầu : Cho biết F[i] và F[j] . Hãy tính F[n].</p><p>Giới hạn :</p><ul><li>-1000 <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-27-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-135" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-136" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-137" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-27" type="math/tex">\leq</script></span>&nbsp; i &nbsp;<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2260;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-28-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-138" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.394em, 1000.7em, 2.65em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-139" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-140" class="mo">≠</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.355em; border-left: 0px solid; width: 0px; height: 1.372em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≠</mo></math></span></span><script id="MathJax-Element-28" type="math/tex">\neq</script></span>&nbsp;j , n <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-29-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-141" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-142" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-143" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-29" type="math/tex">\leq</script></span>&nbsp;1000.</li><li>-MaxLongInt <span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-30-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-144" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-145" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-146" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-30" type="math/tex">\leq</script></span>F[i] , F[j] , F[n]<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-31-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-147" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-148" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-149" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-31" type="math/tex">\leq</script></span>&nbsp;MaxLongInt.</li><li>Time limit 1s , bộ nhớ 200KB.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li></ul><p>Input</p><p>Gồm các số nguyên&nbsp;i,&nbsp;F[i],&nbsp;j,&nbsp;F[j] và&nbsp; n</p><p>Output</p><p>F[n]</p><p>Ví dụ :</p><p>Input</p><p>3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;–1&nbsp;&nbsp;4&nbsp;&nbsp;5&nbsp;</p><p>Output</p><p>12</p><p><strong>Thuật giải :</strong></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Đối với bài này có 2 cách làm . Giả sử i &lt; j .</p><p>Cách
+ 1 : Duyệt nhị phân giá trị của F[i+1] . Với mỗi giá trị của F[i+1] ta 
+sẽ kiểm tra xem số F[j] có đúng với đề bài không ! Nếu đúng thì dừng lại
+ và sinh F[n]. Biết F[i] , F[i+1] thì rõ ràng ta có thể tính được toàn 
+bộ phần tử thuộc dãy.</p><p>Cách 2 : Dựa vào CT :</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F[i+1] =&nbsp;&nbsp;1 * F[i-1]&nbsp;&nbsp;+ 1 * F[i] ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F[i+2] =&nbsp;&nbsp;1 * F[i-1]&nbsp;&nbsp;+ 2 * F[i] ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F[i+3] =&nbsp;&nbsp;2 * F[i-1]&nbsp;&nbsp;+ 3 * F[i] ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F[i+4] =&nbsp;&nbsp;3 * F[i-1]&nbsp;&nbsp;+ 5 * F[i] ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F[i+5] = 5 * F[i-1]&nbsp;&nbsp;+ 8 * F[i] ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F[j]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= x * F[i-1] + y * F[i].</p><p>Nếu
+ để ý ta sẽ thấy hệ số của F[i-1] , F[i] chính là một dãy Fibonacci . 
+Vậy thì ở đây công việc còn lại sẽ rất đơn giản. Ta chỉ việc tính xem x ,
+ y là bao nhiêu nữa là xong ! Chú ý một chút nho nhỏ nếu dùng Cách 2 đó 
+là x, y có thể là rất lớn nên khai báo kiểu Extended là tốt nhất.</p><h2>Bài 10 : SKBJunk 307</h2><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>SKBJunk
+ 307 là rô bốt đời mới nhất của trung tâm nghiên cứu vũ 
+trụ&nbsp;&nbsp;VNSC ( Viet Nam Space Center ) . Nó được trang bị khả 
+năng tính toán siêu việt. An là một người thích nổi tiếng, để cho mọi 
+người thấy SKBJunk 307 tính toán còn chậm hơn cả một máy tính thông 
+thường, anh ta đã thách đấu với nó. Nội dung của cuộc thi là tính xem 1<sup>N</sup>&nbsp;+ 2<sup>N</sup>&nbsp;+ 3<sup>N</sup>&nbsp;+ 4<sup>N</sup>&nbsp;có bao nhiêu chữ số 0 ở cuối cùng. An biết chắc là sẽ thua nên đã thuê bạn giúp anh ta.</p><p>Yêu cầu : Hãy lập trình tính xem 1<sup>N</sup>&nbsp;+ 2<sup>N</sup>&nbsp;+ 3<sup>N</sup>&nbsp;+ 4<sup>N</sup><sup>&nbsp;</sup>có bao nhiêu chữ số 0 ở cuối cùng.</p><p>Giới hạn :</p><ul><li>1<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-32-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-150" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-151" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-152" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-32" type="math/tex">\leq</script></span>N<span class="math-tex"><span style="color: inherit;" class="MathJax_Preview"></span><span role="presentation" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;/math&gt;" style="position: relative;" tabindex="0" id="MathJax-Element-33-Frame" class="MathJax"><nobr aria-hidden="true"><span style="width: 1.018em; display: inline-block;" role="math" id="MathJax-Span-153" class="math"><span style="display: inline-block; position: relative; width: 0.758em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.474em, 1000.67em, 2.573em, -1000em); top: -2.273em; left: 0em;"><span id="MathJax-Span-154" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-155" class="mo">≤</span></span><span style="display: inline-block; width: 0px; height: 2.273em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.254em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span role="presentation" class="MJX_Assistive_MathML"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≤</mo></math></span></span><script id="MathJax-Element-33" type="math/tex">\leq</script></span>300000.</li><li>Time limit 1 s ,&nbsp;&nbsp;bộ nhớ 200KB.</li></ul><p>Input</p><p>N</p><p>Output</p><p>Gồm 1 số X duy nhất là kết quả tính được.</p><p>Ví dụ:</p><p>Input</p><p>1</p><p>Output</p><p>1</p><p><strong>Thuật giải :</strong></p><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>&nbsp;</strong>Dễ thấy kết quả trả ra luôn chỉ có thể là 1 trong 3 số : 0 , 1 , 2.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kết quả của bài toán này đã được CM bởi Euler đó là :</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X(N) = X(N mod 2000).</p><p>Bởi
+ vậy thay vì tính số mũ từ 1-&gt; N ta chỉ phải tính số mũ từ 1-&gt; N 
+mod 2000 mà thôi. Tuy nhiên trong thực tế ( với N &lt;= 300000) thì ta 
+chỉ cần tính số mũ từ 1 -&gt; N mod 100 mà thôi.</p><p>&nbsp;</p></div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="5021" post-reply-url="/forum/82/4951/5021/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+                
+                
+              
+            
+            
+              &nbsp;|&nbsp;
+              <div fb-iframe-plugin-query="action=like&amp;app_id=449532395210446&amp;container_width=827&amp;href=http%3A%2F%2Fvnoi.info%2Flibrary%2F82%2F4951%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=true" fb-xfbml-state="rendered" class="fb-like fb_iframe_widget" data-href="http://vnoi.info/library/82/4951/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"><span style="vertical-align: bottom; width: 124px; height: 20px;"><iframe class="" src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/like.html" style="border: medium none; visibility: visible; width: 124px; height: 20px;" title="fb:like Facebook Social Plugin" scrolling="no" allowfullscreen="true" allowtransparency="true" name="f3d368226666322" width="1000px" frameborder="0" height="1000px"></iframe></span></div>
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="5021" role="button" style="text-decoration: none;" id="upvote-5021">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-5021">
+                      16
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="5021" role="button" style="text-decoration: none;" id="downvote-5021">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+    
+      
+    
+       
+        
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-5126" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(http://www.gravatar.com/avatar/34f9b15609d790b74f9cb632826219e6/?s=80) no-repeat">
+          <a href="http://vnoi.info/user/profile/huenhangheo/">
+            <img src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/a.jpeg" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/huenhangheo/"><span class="user-gray">huenhangheo</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-default arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/huenhangheo/" class="post-username">
+                huenhangheo
+              </a>
+              
+              <a href="#post-5126"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              11&nbsp;tháng trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+          <div class="post-resize-picture"><p>Cho mình hỏi về bài 1 tí:&nbsp;</p><p>A&nbsp;&nbsp;&gt;&nbsp;&nbsp;B<sup>n-1</sup>&nbsp;+ B<sup>n-2</sup>&nbsp;+ … B<sup>0</sup>.</p><p>Tổng bất kỳ của 1 tổ hợp K phần tử của (n-1) phần tử này cũng đều &lt; A</p><p>ở đây đang lẽ phải là n phân tử mới đúng chứ, từ&nbsp;B<sup>n-1</sup>&nbsp;&nbsp;đến&nbsp;B<sup>0</sup> thì phải có n phần tử chứ&nbsp;<sub><strong><em>​​</em></strong></sub></p><p>&nbsp;</p></div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="5126" post-reply-url="/forum/82/4951/5126/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+            
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="5126" role="button" style="text-decoration: none;" id="upvote-5126">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-5126">
+                      -1
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="5126" role="button" style="text-decoration: none;" id="downvote-5126">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+      
+    
+       
+        
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-5127" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(/media/avatars/RR/resized/80/IMG_3199.JPG) no-repeat">
+          <a href="http://vnoi.info/user/profile/RR/">
+            <img src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/IMG_3199.JPG" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/RR/"><span class="user-red">RR</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-default arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/RR/" class="post-username">
+                RR
+              </a>
+              
+              <a href="#post-5127"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              11&nbsp;tháng trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+            <div class="well">
+              Trả lời
+              <a href="http://vnoi.info/user/profile/huenhangheo/"><span class="user-gray">huenhangheo</span></a>
+              <br>
+              <a href="http://vnoi.info/library/82/4951/?page=1#post-5126"><span class="glyphicon glyphicon-link">&nbsp;</span></a>
+              <a href="javascript:void(0)" onclick="$(this).next().toggle()">Hiện bài gốc</a>
+              <div class="post-resize-picture" id="post-&lt;p&gt;Cho mình hỏi về bài 1 tí:&nbsp;&lt;-parent" style="display:none"><p>Cho mình hỏi về bài 1 tí:&nbsp;</p><p>A&nbsp;&nbsp;&gt;&nbsp;&nbsp;B<sup>n-1</sup>&nbsp;+ B<sup>n-2</sup>&nbsp;+ … B<sup>0</sup>.</p><p>Tổng bất kỳ của 1 tổ hợp K phần tử của (n-1) phần tử này cũng đều &lt; A</p><p>ở đây đang lẽ phải là n phân tử mới đúng chứ, từ&nbsp;B<sup>n-1</sup>&nbsp;&nbsp;đến&nbsp;B<sup>0</sup> thì phải có n phần tử chứ&nbsp;<sub><strong><em>​​</em></strong></sub></p><p>&nbsp;</p></div>
+            </div>
+          
+          <div class="post-resize-picture"><p>Mình cũng nghĩ là phải N phần tử mới đúng. Mình đã sửa lại bài viết. Thanks bạn nhé :)</p></div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="5127" post-reply-url="/forum/82/4951/5127/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+            
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="5127" role="button" style="text-decoration: none;" id="upvote-5127">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-5127">
+                      0
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="5127" role="button" style="text-decoration: none;" id="downvote-5127">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+      
+    
+       
+        
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-5128" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(http://www.gravatar.com/avatar/34f9b15609d790b74f9cb632826219e6/?s=80) no-repeat">
+          <a href="http://vnoi.info/user/profile/huenhangheo/">
+            <img src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/a.jpeg" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/huenhangheo/"><span class="user-gray">huenhangheo</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-default arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/huenhangheo/" class="post-username">
+                huenhangheo
+              </a>
+              
+              <a href="#post-5128"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              11&nbsp;tháng trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+            <div class="well">
+              Trả lời
+              <a href="http://vnoi.info/user/profile/RR/"><span class="user-red">RR</span></a>
+              <br>
+              <a href="http://vnoi.info/library/82/4951/?page=1#post-5127"><span class="glyphicon glyphicon-link">&nbsp;</span></a>
+              <a href="javascript:void(0)" onclick="$(this).next().toggle()">Hiện bài gốc</a>
+              <div class="post-resize-picture" id="post-&lt;p&gt;Mình cũng nghĩ là phải N ph-parent" style="display:none"><p>Mình cũng nghĩ là phải N phần tử mới đúng. Mình đã sửa lại bài viết. Thanks bạn nhé :)</p></div>
+            </div>
+          
+          <div class="post-resize-picture"><p>"nếu như không chứa B<sup>n</sup>&nbsp;thì số lượng số thoả mãn sẽ = Tổ hợp chập K của (n-1)"</p><p>nêu là N phần tử thì đáng ra phải là tổ hợp K phần tử của N phần tử chứ. Không biết có đúng không nhỉ ???</p></div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="5128" post-reply-url="/forum/82/4951/5128/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+            
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="5128" role="button" style="text-decoration: none;" id="upvote-5128">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-5128">
+                      0
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="5128" role="button" style="text-decoration: none;" id="downvote-5128">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+      
+    
+       
+        
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-5129" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(/media/avatars/RR/resized/80/IMG_3199.JPG) no-repeat">
+          <a href="http://vnoi.info/user/profile/RR/">
+            <img src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/IMG_3199.JPG" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/RR/"><span class="user-red">RR</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-default arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/RR/" class="post-username">
+                RR
+              </a>
+              
+              <a href="#post-5129"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              11&nbsp;tháng trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+            <div class="well">
+              Trả lời
+              <a href="http://vnoi.info/user/profile/huenhangheo/"><span class="user-gray">huenhangheo</span></a>
+              <br>
+              <a href="http://vnoi.info/library/82/4951/?page=1#post-5128"><span class="glyphicon glyphicon-link">&nbsp;</span></a>
+              <a href="javascript:void(0)" onclick="$(this).next().toggle()">Hiện bài gốc</a>
+              <div class="post-resize-picture" id="post-&lt;p&gt;&quot;nếu như không chứa B&lt;sup&gt;n-parent" style="display:none"><p>"nếu như không chứa B<sup>n</sup>&nbsp;thì số lượng số thoả mãn sẽ = Tổ hợp chập K của (n-1)"</p><p>nêu là N phần tử thì đáng ra phải là tổ hợp K phần tử của N phần tử chứ. Không biết có đúng không nhỉ ???</p></div>
+            </div>
+          
+          <div class="post-resize-picture"><p>Bạn nói đúng òi&nbsp;:D mình sửa câu trên mà quên sửa đoạn dưới.</p></div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="5129" post-reply-url="/forum/82/4951/5129/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+            
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="5129" role="button" style="text-decoration: none;" id="upvote-5129">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-5129">
+                      0
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="5129" role="button" style="text-decoration: none;" id="downvote-5129">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+      
+    
+  </div>
+
+  <div id="post-delete-confirm-dialog" style="display:none" title="Xóa bài viết">
+    Thao tác này sẽ xóa hoàn toàn bài viết này. Bạn không thế lấy lại bài viết đã xóa.
+    Bạn có muốn tiếp tục không?
+  </div>
+
+  <div id="post-reply-form-div" style="display:none">
+    
+
+
+
+
+<div>
+  <form role="form" class="form-horizontal" method="post" id="post-reply-form">
+    
+    <input id="id_title" name="title" type="hidden">
+<div class="form-group"><label class="col-md-2 control-label" for="id_content">Nội dung</label><div class="col-md-8"><textarea style="visibility: hidden; display: none;" class="form-control" cols="40" id="id_content" name="content" placeholder="Nội dung" rows="10" title=""></textarea><div id="cke_id_content" class="cke_1 cke cke_reset cke_chrome cke_editor_id_content cke_ltr cke_browser_gecko" dir="ltr" role="application" aria-labelledby="cke_id_content_arialbl" lang="en"><span id="cke_id_content_arialbl" class="cke_voice_label">Rich Text Editor, id_content</span><div class="cke_inner cke_reset" role="presentation"><span id="cke_1_top" class="cke_top cke_reset_all" role="presentation" style="height: auto; -moz-user-select: none;"><span id="cke_5" class="cke_voice_label">Editor toolbars</span><span id="cke_1_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_5" onmousedown="return false;"><span id="cke_7" class="cke_toolbar" aria-labelledby="cke_7_label" role="toolbar"><span id="cke_7_label" class="cke_voice_label">Basic Styles</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_8" class="cke_button cke_button__bold  cke_button_off" title="Bold" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_8_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(0,event);" onfocus="return CKEDITOR.tools.callFunction(1,event);" onclick="CKEDITOR.tools.callFunction(2,this);return false;"><span class="cke_button_icon cke_button__bold_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -24px;background-size:auto;">&nbsp;</span><span id="cke_8_label" class="cke_button_label cke_button__bold_label" aria-hidden="false">Bold</span></a><a id="cke_9" class="cke_button cke_button__italic  cke_button_off" title="Italic" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_9_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(3,event);" onfocus="return CKEDITOR.tools.callFunction(4,event);" onclick="CKEDITOR.tools.callFunction(5,this);return false;"><span class="cke_button_icon cke_button__italic_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -48px;background-size:auto;">&nbsp;</span><span id="cke_9_label" class="cke_button_label cke_button__italic_label" aria-hidden="false">Italic</span></a><a id="cke_10" class="cke_button cke_button__subscript  cke_button_off" title="Subscript" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_10_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(6,event);" onfocus="return CKEDITOR.tools.callFunction(7,event);" onclick="CKEDITOR.tools.callFunction(8,this);return false;"><span class="cke_button_icon cke_button__subscript_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -96px;background-size:auto;">&nbsp;</span><span id="cke_10_label" class="cke_button_label cke_button__subscript_label" aria-hidden="false">Subscript</span></a><a id="cke_11" class="cke_button cke_button__superscript  cke_button_off" title="Superscript" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_11_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(9,event);" onfocus="return CKEDITOR.tools.callFunction(10,event);" onclick="CKEDITOR.tools.callFunction(11,this);return false;"><span class="cke_button_icon cke_button__superscript_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -120px;background-size:auto;">&nbsp;</span><span id="cke_11_label" class="cke_button_label cke_button__superscript_label" aria-hidden="false">Superscript</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_12" class="cke_toolbar" aria-labelledby="cke_12_label" role="toolbar"><span id="cke_12_label" class="cke_voice_label">Paragraph</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_13" class="cke_button cke_button__numberedlist  cke_button_off" title="Insert/Remove Numbered List" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_13_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(12,event);" onfocus="return CKEDITOR.tools.callFunction(13,event);" onclick="CKEDITOR.tools.callFunction(14,this);return false;"><span class="cke_button_icon cke_button__numberedlist_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -576px;background-size:auto;">&nbsp;</span><span id="cke_13_label" class="cke_button_label cke_button__numberedlist_label" aria-hidden="false">Insert/Remove Numbered List</span></a><a id="cke_14" class="cke_button cke_button__bulletedlist  cke_button_off" title="Insert/Remove Bulleted List" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_14_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(15,event);" onfocus="return CKEDITOR.tools.callFunction(16,event);" onclick="CKEDITOR.tools.callFunction(17,this);return false;"><span class="cke_button_icon cke_button__bulletedlist_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -528px;background-size:auto;">&nbsp;</span><span id="cke_14_label" class="cke_button_label cke_button__bulletedlist_label" aria-hidden="false">Insert/Remove Bulleted List</span></a><span class="cke_toolbar_separator" role="separator"></span><a id="cke_15" class="cke_button cke_button__outdent cke_button_disabled " title="Decrease Indent" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_15_label" aria-haspopup="false" aria-disabled="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(18,event);" onfocus="return CKEDITOR.tools.callFunction(19,event);" onclick="CKEDITOR.tools.callFunction(20,this);return false;"><span class="cke_button_icon cke_button__outdent_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -384px;background-size:auto;">&nbsp;</span><span id="cke_15_label" class="cke_button_label cke_button__outdent_label" aria-hidden="false">Decrease Indent</span></a><a id="cke_16" class="cke_button cke_button__indent  cke_button_off" title="Increase Indent" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_16_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(21,event);" onfocus="return CKEDITOR.tools.callFunction(22,event);" onclick="CKEDITOR.tools.callFunction(23,this);return false;"><span class="cke_button_icon cke_button__indent_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -336px;background-size:auto;">&nbsp;</span><span id="cke_16_label" class="cke_button_label cke_button__indent_label" aria-hidden="false">Increase Indent</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_17" class="cke_toolbar" aria-labelledby="cke_17_label" role="toolbar"><span id="cke_17_label" class="cke_voice_label">Links</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_18" class="cke_button cke_button__link  cke_button_off" title="Link" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_18_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(24,event);" onfocus="return CKEDITOR.tools.callFunction(25,event);" onclick="CKEDITOR.tools.callFunction(26,this);return false;"><span class="cke_button_icon cke_button__link_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -456px;background-size:auto;">&nbsp;</span><span id="cke_18_label" class="cke_button_label cke_button__link_label" aria-hidden="false">Link</span></a><a id="cke_19" class="cke_button cke_button__unlink cke_button_disabled " title="Unlink" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_19_label" aria-haspopup="false" aria-disabled="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(27,event);" onfocus="return CKEDITOR.tools.callFunction(28,event);" onclick="CKEDITOR.tools.callFunction(29,this);return false;"><span class="cke_button_icon cke_button__unlink_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -480px;background-size:auto;">&nbsp;</span><span id="cke_19_label" class="cke_button_label cke_button__unlink_label" aria-hidden="false">Unlink</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_20" class="cke_toolbar" aria-labelledby="cke_20_label" role="toolbar"><span id="cke_20_label" class="cke_voice_label">Insert</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_21" class="cke_button cke_button__codesnippet  cke_button_off" title="Insert Code Snippet" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_21_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(30,event);" onfocus="return CKEDITOR.tools.callFunction(31,event);" onclick="CKEDITOR.tools.callFunction(32,this);return false;"><span class="cke_button_icon cke_button__codesnippet_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -720px;background-size:auto;">&nbsp;</span><span id="cke_21_label" class="cke_button_label cke_button__codesnippet_label" aria-hidden="false">Insert Code Snippet</span></a><a id="cke_22" class="cke_button cke_button__image  cke_button_off" title="Image" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_22_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(33,event);" onfocus="return CKEDITOR.tools.callFunction(34,event);" onclick="CKEDITOR.tools.callFunction(35,this);return false;"><span class="cke_button_icon cke_button__image_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -744px;background-size:auto;">&nbsp;</span><span id="cke_22_label" class="cke_button_label cke_button__image_label" aria-hidden="false">Image</span></a><a id="cke_23" class="cke_button cke_button__mathjax  cke_button_off" title="Math" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_23_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(36,event);" onfocus="return CKEDITOR.tools.callFunction(37,event);" onclick="CKEDITOR.tools.callFunction(38,this);return false;"><span class="cke_button_icon cke_button__mathjax_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -696px;background-size:auto;">&nbsp;</span><span id="cke_23_label" class="cke_button_label cke_button__mathjax_label" aria-hidden="false">Math</span></a><a id="cke_24" class="cke_button cke_button__specialchar  cke_button_off" title="Insert Special Character" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_24_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(39,event);" onfocus="return CKEDITOR.tools.callFunction(40,event);" onclick="CKEDITOR.tools.callFunction(41,this);return false;"><span class="cke_button_icon cke_button__specialchar_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -768px;background-size:auto;">&nbsp;</span><span id="cke_24_label" class="cke_button_label cke_button__specialchar_label" aria-hidden="false">Insert Special Character</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_25" class="cke_toolbar" aria-labelledby="cke_25_label" role="toolbar"><span id="cke_25_label" class="cke_voice_label">Styles</span><span class="cke_toolbar_start"></span><span id="cke_6" class="cke_combo cke_combo__format  cke_combo_off" role="presentation"><span id="cke_6_label" class="cke_combo_label">Format</span><a class="cke_combo_button" title="Paragraph Format" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_6_label" aria-haspopup="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(43,event,this);" onfocus="return CKEDITOR.tools.callFunction(44,event);" onclick="CKEDITOR.tools.callFunction(42,this);return false;"><span id="cke_6_text" class="cke_combo_text cke_combo_inlinelabel">Format</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_26" class="cke_toolbar" aria-labelledby="cke_26_label" role="toolbar"><span id="cke_26_label" class="cke_voice_label">Tools</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_27" class="cke_button cke_button__maximize  cke_button_off" title="Maximize" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_27_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(45,event);" onfocus="return CKEDITOR.tools.callFunction(46,event);" onclick="CKEDITOR.tools.callFunction(47,this);return false;"><span class="cke_button_icon cke_button__maximize_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -792px;background-size:auto;">&nbsp;</span><span id="cke_27_label" class="cke_button_label cke_button__maximize_label" aria-hidden="false">Maximize</span></a></span><span class="cke_toolbar_end"></span></span></span></span><div style="height: 200px;" id="cke_1_contents" class="cke_contents cke_reset" role="presentation"><iframe allowtransparency="true" tabindex="0" title="Rich Text Editor, id_content" class="cke_wysiwyg_frame cke_reset" style="width: 100%; height: 100%;" src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/a.html" frameborder="0"></iframe></div></div></div></div></div>
+<input id="id_parent" name="parent" type="hidden">
+    <input name="csrfmiddlewaretoken" value="6I66Wn5o4n3nupzGjr6cz8PIDggVLVJy" type="hidden">
+    
+      <div class="form-group"><label class="col-md-2 control-label">&nbsp;</label><div class="col-md-8"><button class="btn btn-primary" type="submit"><span class="fa-fw glyphicon glyphicon-ok"></span>OK</button></div></div>
+    
+  </form>
+</div>
+
+
+
+<script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/ckeditor.js"></script>
+<script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/config.js"></script>
+<script>
+CKEDITOR.replace('id_content');
+</script>
+
+
+  </div>
+
+  
+  
+
+
+
+
+
+    </div>
+    <div class="push-footer"></div>
+  </div>
+  <!--/.container-->
+    
+      <div class="footer">
+        <div class="container">
+          <p class="text-muted">© VNOI Team 2015</p>
+        </div>
+      </div>
+    
+
+
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/jquery-2.js"></script>
+  <script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/bootstrap.js"></script>
+  <script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/jquery-ui.js"></script>
+  <script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/jquery.js"></script>
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/ie10-viewport-bug-workaround.js"></script>
+  <script type="text/javascript" src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/MathJax.js">
+  </script>
+  
+  <script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/highlight_002.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre:has(code)').css('background-color', '#39424e');
+      hljs.initHighlightingOnLoad();
+    });
+  </script>
+  <script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/base.js"></script>
+  
+  <script>
+  var navbar_highlight = $.trim("navbar_library");
+  if (navbar_highlight == "") navbar_highlight = "navbar_home";
+  $(document).ready(function () {
+    $("#" + navbar_highlight).addClass("active");
+  });
+  </script>
+  
+  <script src="Chuy%C3%AAn%20%C4%91%E1%BB%81%20s%E1%BB%91%20h%E1%BB%8Dc%20-%20Nguy%E1%BB%85n%20Minh%20Hi%E1%BA%BFu%20-%20VNOI_files/forum.js"></script>
+  <script>
+  
+</script>
+
+
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: MathJax_Main,sans-serif;" id="MathJax_Font_Test"></div></div></body></html>

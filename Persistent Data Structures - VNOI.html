@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="http://vnoi.info/library/favicon.ico">
+
+  <title>
+    
+  Persistent Data Structures - VNOI
+
+  </title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="Persistent%20Data%20Structures%20-%20VNOI_files/bootstrap.css" rel="stylesheet">
+  <link href="Persistent%20Data%20Structures%20-%20VNOI_files/jquery-ui.css" rel="stylesheet">
+  <link href="Persistent%20Data%20Structures%20-%20VNOI_files/jquery-ui_002.css" rel="stylesheet">
+  <link href="Persistent%20Data%20Structures%20-%20VNOI_files/base.css" rel="stylesheet">
+  <!-- highlightjs -->
+  <link href="Persistent%20Data%20Structures%20-%20VNOI_files/highlightjs_agate.css" rel="stylesheet">
+
+  <!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->
+  <!--<link href="offcanvas.static" rel="stylesheet">-->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <!-- jGrowl -->
+  <link rel="stylesheet" type="text/css" href="Persistent%20Data%20Structures%20-%20VNOI_files/jquery.css">
+  
+  
+  <!-- Google analytics -->
+  <script src="Persistent%20Data%20Structures%20-%20VNOI_files/sdk.js" id="facebook-jssdk"></script><script src="Persistent%20Data%20Structures%20-%20VNOI_files/analytics.js" async=""></script><script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-61806804-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+<style>.cke{visibility:hidden;}</style><script src="Persistent%20Data%20Structures%20-%20VNOI_files/config_002.js" type="text/javascript"></script><link href="Persistent%20Data%20Structures%20-%20VNOI_files/editor_gecko.css" type="text/css" rel="stylesheet"><script src="Persistent%20Data%20Structures%20-%20VNOI_files/en.js" type="text/javascript"></script><script src="Persistent%20Data%20Structures%20-%20VNOI_files/styles.js" type="text/javascript"></script><script src="Persistent%20Data%20Structures%20-%20VNOI_files/highlight.js" type="text/javascript"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body><div style="display: none;" id="MathJax_Message"></div>
+  <!-- Start of FB plugin -->
+  <div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="http://staticxx.facebook.com/connect/xd_arbiter.php?version=42#channel=f3ab7b9fa4f0a02&amp;origin=http%3A%2F%2Fvnoi.info" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0"></iframe><iframe src="Persistent%20Data%20Structures%20-%20VNOI_files/xd_arbiter_002.html" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=449532395210446";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <!-- End of FB plugin -->
+  <div class="body-wrapper">
+    
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+
+    <div class="navbar-header" style="margin-left: 0.5em">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="http://vnoi.info/" id="logo-text">VNOI</a>
+    </div>
+
+    <div id="navbar" class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
+        
+        <li id="navbar_home"><a href="http://vnoi.info/"><span class="fa-fw glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
+        <li id="navbar_problems"><a href="http://vnoi.info/problems/list/"><span class="fa-fw glyphicon glyphicon-th-list" aria-hidden="true"></span>Đề bài</a></li>
+        <li id="navbar_contests"><a href="http://vnoi.info/contests/list/"><span class="fa-fw glyphicon glyphicon-time" aria-hidden="true"></span>Kỳ thi</a></li>
+        <li id="navbar_forum"><a href="http://vnoi.info/forum/"><span class="fa-fw glyphicon glyphicon-comment" aria-hidden="true"></span>Diễn đàn</a></li>
+        <li class="active" id="navbar_library"><a href="http://vnoi.info/library/"><span class="fa-fw glyphicon glyphicon-book" aria-hidden="true"></span>Thư viện</a></li>
+        
+        <li class="dropdown" id="navbar_profile">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa-fw glyphicon glyphicon-user icon"></span>huynhduy_hmd&nbsp;<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://vnoi.info/user/profile/huynhduy_hmd/"><span class="fa-fw glyphicon glyphicon-user icon"></span>Trang cá nhân</a></li>
+            <li><a href="http://vnoi.info/message/"><span class="fa-fw glyphicon glyphicon-envelope" aria-hidden="true"></span>Tin nhắn</a></li>
+            <li><a href="http://vnoi.info/user/logout"><span class="fa-fw glyphicon glyphicon-log-out"></span>Đăng xuất</a></li>
+          </ul>
+        </li>
+        
+
+        
+          <li id="navbar_noti"><a href="http://vnoi.info/notification/">
+            <span class="glyphicon glyphicon-bell globe-noti"></span>
+            <span class="badge badge-noti">0</span>
+          </a></li>
+        
+
+        
+      </ul>
+    </div>
+    <!-- /.nav-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- /.navbar -->
+
+    <div class="container" id="body-container">
+      
+      
+      <ol id="breadcrumbs" class="breadcrumb">
+        
+  
+    <li><a href="http://vnoi.info/library/">Thư viện</a></li>
+  
+  <li><a href="http://vnoi.info/library/8/">Cấu trúc dữ liệu</a></li>
+  <li>Persistent Data Structures</li>
+
+      </ol>
+      
+      
+
+  
+  <div class="grid">
+    
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-8" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(/media/avatars/admin/resized/80/gravatar-logo-512.jpg) no-repeat">
+          <a href="http://vnoi.info/user/profile/admin/">
+            <img src="Persistent%20Data%20Structures%20-%20VNOI_files/gravatar-logo-512.jpg" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/admin/"><span class="user-violet">admin</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-primary arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/admin/" class="post-username">
+                admin
+              </a>
+              
+              <a href="#post-8"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              1&nbsp;năm, 2&nbsp;tháng trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+          <div class="post-resize-picture"><p><strong>1. Mở đầu</strong></p>
+
+<p>Persistent Data Structures là những cấu trúc dữ liệu được dùng khi 
+chúng ta cần có "toàn bộ lịch sử" của các thay đổi trên 1 cấu trúc dữ 
+liệu. (Chú ý rằng từ "persistent" còn được dùng trong "persistent 
+storage" với một nghĩa hoàn toàn khác).</p>
+
+<p>Xét bài toán ví dụ:</p>
+
+<ul>
+	<li>Cho một dãy A gồm N phần tử.</li>
+	<li>Có 2 loại truy vấn:
+	<ul>
+		<li>Update: Gán Ai = v</li>
+		<li>Query: Tìm min(Ai, ..., Aj) tại thời điểm sau phép gán thứ K.</li>
+	</ul>
+	</li>
+</ul>
+
+<p>Nếu không có đoạn "tại thời điểm sau phép gán thứ K", bài toán là 1 
+bài cơ bản trên Interval Tree (Segment Tree). Đoạn "tại thời điểm sau 
+phép gán thứ K" buộc chúng ta phải lưu lại các thông tin về lịch sử cập 
+nhật CTDL - đây chính là tư tưởng của Persistent Data Structures.</p>
+
+<p>Gọi trạng thái của CTDL tại một thời điểm là 1 version của CTDL đó. 
+Một cách cụ thể hơn, persistent data structures cho phép chúng ta:</p>
+
+<ul>
+	<li>Truy vấn trên một version cũ của CTDL</li>
+	<li>Cập nhật dữ liệu trong version mới nhất của CTDL, bằng cách tạo thêm 1 version mới của CTDL.
+	<ul>
+		<li>Trong một số cách cài đặt, Persistent Data Structures còn có thể 
+cho phép thay version hiện tại của CTDL thành một version trong quá khứ 
+(phần 2 mô tả phương pháp cài đặt có thể thực hiện được thao tác này).</li>
+	</ul>
+	</li>
+</ul>
+
+<p>Cần hiểu rằng Persistent Data Structures không phải là một loại CTDL 
+mới. Nó là một số kĩ năng tổng quát giúp thêm thông tin về lịch sử thay 
+đổi vào CTDL thông thường&nbsp;<strong>một cách hiệu quả</strong>. Ví dụ:</p>
+
+<ul>
+	<li>IT + Persistent trick --&gt; Persistent IT</li>
+	<li>BIT + Persistent trick --&gt; Persistent BIT</li>
+</ul>
+
+<p>Tại sao lại là "một cách hiệu quả"? Bởi vì ta hoàn toàn có thể có một
+ Persistent Data Structures bằng cách: khi cập nhật, ta tạo một bản sao 
+hoàn toàn mới của CTDL, thay đổi một số dữ liệu trên nó và lưu lại. Như 
+vậy ta luôn có được một thuật toán với độ phức tạp O(Q*N*T) và bộ nhớ 
+O(Q*N), với Q là số thao tác cần thực hiện, và N là độ lớn của CTDL, và T
+ là thời gian để thực hiện thao tác trên CTDL.</p>
+
+<p>Trong các phần dưới đây, mình sẽ trình bày về 2 kĩ thuật thông thường của Persistent Data Structures:</p>
+
+<ul>
+</ul>
+
+<ul>
+</ul>
+</div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="8" post-reply-url="/forum/8/3/8/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+                
+                
+              
+            
+            
+              &nbsp;|&nbsp;
+              <div fb-iframe-plugin-query="action=like&amp;app_id=449532395210446&amp;container_width=827&amp;href=http%3A%2F%2Fvnoi.info%2Flibrary%2F8%2F3%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=true" fb-xfbml-state="rendered" class="fb-like fb_iframe_widget" data-href="http://vnoi.info/library/8/3/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"><span style="vertical-align: bottom; width: 124px; height: 20px;"><iframe class="" src="Persistent%20Data%20Structures%20-%20VNOI_files/like.html" style="border: medium none; visibility: visible; width: 124px; height: 20px;" title="fb:like Facebook Social Plugin" scrolling="no" allowfullscreen="true" allowtransparency="true" name="f3e1784389810c8" width="1000px" frameborder="0" height="1000px"></iframe></span></div>
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="8" role="button" style="text-decoration: none;" id="upvote-8">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-8">
+                      9
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="8" role="button" style="text-decoration: none;" id="downvote-8">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+    
+      
+    
+       
+        
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-9" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(/media/avatars/admin/resized/80/gravatar-logo-512.jpg) no-repeat">
+          <a href="http://vnoi.info/user/profile/admin/">
+            <img src="Persistent%20Data%20Structures%20-%20VNOI_files/gravatar-logo-512.jpg" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/admin/"><span class="user-violet">admin</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-default arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/admin/" class="post-username">
+                admin
+              </a>
+              
+              <a href="#post-9"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              1&nbsp;năm, 2&nbsp;tháng trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+          <div class="post-resize-picture"><p><strong>2. Persistent IT</strong></p><p><strong>Tư tưởng:</strong></p><p>Quay
+ trở lại bài toán. Chúng ta biết rằng mỗi thao tác update trên IT chỉ 
+mất O(logN). Điều này tương đương với việc mỗi thao tác update chỉ làm 
+thay đổi O(logN) nút trên cây. Như vậy ta hoàn toàn có thể lưu lại tất 
+cả các thay đổi trên tất cả các nút trong O(Q*logN).</p><p>&nbsp;</p><p>Từ đó, ta rút ra được một tư tưởng cài đặt thuật toán:</p><ul><li>Với
+ mỗi thao tác Update, ta tạo thêm một số nút mới trên IT. Để không phải 
+sinh thêm các nút không bị thay đổi, một nút ở version mới có thể có con
+ là một nút ở vesion cũ.<ul><li>Chú ý: Mỗi thao tác Update luôn thay đổi
+ một đường đi từ gốc đến một nút lá, nên không có trường hợp một nút ở 
+version cũ có con là một nút ở version mới hơn. (Nếu thao tác Update là 
+Update 1 đoạn, các nút bị thay đổi không còn là một đường đi nữa, nhưng 
+nhận xét này vẫn đúng).</li></ul></li><li>Khi thực hiện thao tác Query trên version t, ta chỉ cần thực hiện Query trên nút gốc ở version t.</li></ul><p>Tư tưởng này còn được gọi là&nbsp;<strong>Path Copy</strong>&nbsp;trong các tài liệu tiếng Anh.</p><p>&nbsp;</p><p><strong>Cài đặt:&nbsp;</strong></p><pre style="background-color: rgb(57, 66, 78);"><code class="language-cpp hljs"><span class="hljs-keyword">struct</span> Node {
+    <span class="hljs-keyword">int</span> left, right;    <span class="hljs-comment">// ID of left child &amp; right child</span>
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ln;       <span class="hljs-comment">// Max value of node</span>
+    Node() {}
+    Node(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ln, <span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right) : ln(ln), left(left), right(right) {}
+} it[<span class="hljs-number">11000111</span>];         <span class="hljs-comment">// Each node has a position in this array, called ID</span>
+<span class="hljs-keyword">int</span> nNode;
+
+<span class="hljs-keyword">int</span> ver[MN];            <span class="hljs-comment">// ID of root in each version</span>
+
+<span class="hljs-comment">// Update max value of a node</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">refine</span><span class="hljs-params">(<span class="hljs-keyword">int</span> cur)</span> </span>{
+    it[cur].ln = max(it[it[cur].left].ln, it[it[cur].right].ln);
+}
+
+<span class="hljs-comment">// Update a range, and return new ID of node</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> oldId)</span> </span>{
+    <span class="hljs-keyword">if</span> (l == r) {
+        ++nNode;
+        it[nNode] = Node(x, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+        <span class="hljs-keyword">return</span> nNode;
+    }
+
+    <span class="hljs-keyword">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> cur = ++nNode;
+
+    <span class="hljs-keyword">if</span> (u &lt;= mid) {
+        it[cur].left = update(l, mid, u, x, it[oldId].left);
+        it[cur].right = it[oldId].right;
+        refine(cur);
+    }
+    <span class="hljs-keyword">else</span> {
+        it[cur].left = it[oldId].left;
+        it[cur].right = update(mid+<span class="hljs-number">1</span>, r, u, x, it[oldId].right);
+        refine(cur);
+    }
+
+    <span class="hljs-keyword">return</span> cur;
+}
+
+<span class="hljs-comment">// Get max of range. Same as usual IT</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nodeId, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> v)</span> </span>{
+    <span class="hljs-keyword">if</span> (v &lt; l || r &lt; u) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span> (u &lt;= l &amp;&amp; r &lt;= v) <span class="hljs-keyword">return</span> it[nodeId].ln;
+
+    <span class="hljs-keyword">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> max(get(it[nodeId].left, l, mid, u, v), get(it[nodeId].right, mid+<span class="hljs-number">1</span>, r, u, v));
+}
+
+
+<span class="hljs-comment">// When update:</span>
+    ++nVer;
+    ver[nVer] = update(<span class="hljs-number">1</span>, n, u, x, ver[nVer-<span class="hljs-number">1</span>]);
+
+<span class="hljs-comment">// When query:</span>
+    res = get(ver[t], <span class="hljs-number">1</span>, n, u, v);
+</code></pre><ul><li>Ban đầu, ta có một mảng&nbsp;<strong>it</strong>, lưu tất cả các nút sẽ được sinh ra của IT. Mỗi nút gồm có<ul><li>Index của con trái, index của con phải (2 biến&nbsp;<strong>left</strong>&nbsp;và&nbsp;<strong>right</strong>)</li><li>Giá trị nhỏ nhất của các số trong khoảng mà nút quản lý (ở version khi nút đó được tạo ra): biến&nbsp;<strong>ln</strong></li></ul></li><li>Ta lưu thêm index của các nút gốc ở các version khác nhau vào một mảng&nbsp;<strong>ver</strong></li><li>Hàm&nbsp;<strong>update</strong>:<ul><li>Tạo ra các nút mới, và trỏ đến các con ở version cũ hoặc version mới, tùy theo các con có bị thay đổi hay không</li><li>Trả lại index của nút mới được tạo</li></ul></li><li>Hàm&nbsp;<strong>get:</strong><ul><li>Trả lại min của một đoạn được quản lý bởi nút&nbsp;<strong>nodeId</strong></li></ul></li></ul><p>&nbsp;</p><p><strong>Phân tích:</strong></p><ul><li>Cách
+ cài đặt Persistent Data Structures trong mục này rất hiệu quả. Nó hoàn 
+toàn không làm tăng thêm độ phức tạp (persistent IT có độ phức tạp mỗi 
+thao tác là O(logN)), và bộ nhớ cần thêm là tối ưu: O(Q*logN).</li><li>Tuy
+ nhiên, cách cài đặt này không dễ áp dụng với những CTDL khác. Chẳng hạn
+ sẽ rất khó để cài đúng BIT với phương pháp này. Ở mục tiếp theo, mình 
+sẽ trình bày một phương pháp cài đặt khác có thể dùng cho BIT, tuy nhiên
+ có độ phức tạp lớn hơn.</li></ul></div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="9" post-reply-url="/forum/8/3/9/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+            
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="9" role="button" style="text-decoration: none;" id="upvote-9">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-9">
+                      4
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="9" role="button" style="text-decoration: none;" id="downvote-9">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+      
+    
+       
+        
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-10" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(/media/avatars/admin/resized/80/gravatar-logo-512.jpg) no-repeat">
+          <a href="http://vnoi.info/user/profile/admin/">
+            <img src="Persistent%20Data%20Structures%20-%20VNOI_files/gravatar-logo-512.jpg" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/admin/"><span class="user-violet">admin</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-default arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/admin/" class="post-username">
+                admin
+              </a>
+              
+              <a href="#post-10"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              1&nbsp;năm, 2&nbsp;tháng trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+          <div class="post-resize-picture"><p><strong>3. Persistent BIT</strong></p><p><strong>Tư tưởng:</strong></p><p>Tại mỗi nút của BIT, thay vì lưu một giá trị, ta lưu lại tất cả các cặp (version, giá trị) ở nút đó.</p><ul><li>Thao tác update rất đơn giản: chỉ cần thêm một cặp (version, giá trị) vào các nút tương ứng.</li><li>Với
+ thao tác query tại version t, trên một nút, ta cần tìm cặp (version, 
+giá trị) mới nhất vào trước thời điểm t - việc tìm kiếm này có thể được 
+thực hiện bằng tìm kiếm nhị phân.</li></ul><p>Cách cài đặt này được gọi là&nbsp;<strong>Fat Node</strong>&nbsp;trong các tài liệu tiếng Anh.</p><p>&nbsp;</p><p><strong>Cài đặt:</strong></p><p>Code BIT trích từ bài IPSC 2011 - Grid Surveillance:</p><pre style="background-color: rgb(57, 66, 78);"><code class="language-cpp hljs"><span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> _(x) (x &amp; (-(x)))</span>
+
+<span class="hljs-comment">// Persistent BIT</span>
+<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt; pair&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt;</span> &gt; bit[<span class="hljs-number">4100</span>][<span class="hljs-number">4100</span>];
+
+<span class="hljs-comment">// Add val to cell (x, y) at time = time</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y, <span class="hljs-keyword">int</span> val, <span class="hljs-keyword">int</span> time)</span> </span>{
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> u = x; u &lt;= <span class="hljs-number">4096</span>; u += _(u))
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> v = y; v &lt;= <span class="hljs-number">4096</span>; v += _(v)) {
+            <span class="hljs-keyword">if</span> (bit[u][v].empty()) {
+                bit[u][v].push_back(make_pair(time, val));
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">int</span> cur = bit[u][v][bit[u][v].size()-<span class="hljs-number">1</span>].second;
+                bit[u][v].push_back(make_pair(time, cur + val));
+            }
+        }
+}
+
+<span class="hljs-comment">// Get the sum of square (1,1) --&gt; (x, y) at time = time</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> time, <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span> </span>{
+    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> u = x; u &gt; <span class="hljs-number">0</span>; u -= _(u))
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> v = y; v &gt; <span class="hljs-number">0</span>; v -= _(v)) {
+            <span class="hljs-keyword">if</span> (bit[u][v].empty()) {
+            }
+            <span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span> <span class="hljs-params">(bit[u][v][bit[u][v].size()</span>-1].first &lt;</span>= time) {
+                res += bit[u][v][bit[u][v].size()-<span class="hljs-number">1</span>].second;
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">int</span> pos = upper_bound(bit[u][v].begin(), bit[u][v].end(), make_pair(time, <span class="hljs-number">2000111000</span>))
+                        - bit[u][v].begin() - <span class="hljs-number">1</span>;
+                <span class="hljs-keyword">if</span> (pos &gt;= <span class="hljs-number">0</span>)
+                    res += bit[u][v][pos].second;
+            }
+        }
+    <span class="hljs-keyword">return</span> res;
+}
+</code></pre><p>&nbsp;</p><p><strong>Phân tích:</strong></p><ul><li>Độ 
+phức tạp cho mỗi thao tác update không thay đổi (ví dụ với BIT, vẫn là 
+O(logN)). Nhưng độ phức tạp cho mỗi thao tác query bị tăng lên logN (ví 
+dụ với BIT, độ phức tạp cho mỗi thao tác là O(log^2(N)) thay vì O(logN).</li><li>Tuy nhiên, cách cài đặt này tổng quát hơn, dễ dàng được áp dụng cho nhiều CTDL khác nhau, ví dụ cả BIT và IT.</li></ul></div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="10" post-reply-url="/forum/8/3/10/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+            
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="10" role="button" style="text-decoration: none;" id="upvote-10">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-10">
+                      2
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="10" role="button" style="text-decoration: none;" id="downvote-10">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+      
+    
+       
+        
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-11" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(/media/avatars/admin/resized/80/gravatar-logo-512.jpg) no-repeat">
+          <a href="http://vnoi.info/user/profile/admin/">
+            <img src="Persistent%20Data%20Structures%20-%20VNOI_files/gravatar-logo-512.jpg" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/admin/"><span class="user-violet">admin</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-default arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/admin/" class="post-username">
+                admin
+              </a>
+              
+              <a href="#post-11"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              1&nbsp;năm, 2&nbsp;tháng trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+          <div class="post-resize-picture"><p><strong>4. Retroactive Data Structures</strong></p><p>Một
+ lớp CTDL khác tương đối giống với Persistent Data Structures, nhưng có 
+tính ứng dụng thực tế cao hơn là Retroactive Data Structures:</p><p>&nbsp;</p><p>"Retroactive
+ Data Structures là loại CTDL cho phép thực hiện thay đổi với một dãy 
+các thao tác đã được thực hiện trên dữ liệu. Ví dụ: Thay đổi một thao 
+tác đã được thực hiện trong quá khứ".</p><p>&nbsp;</p><p>Cả Retroactive 
+Data Structures &amp; Persistent Data Structures đều quan tâm đến trục 
+thời gian, tuy nhiên điểm khác nhau nằm ở chỗ cách xử lý trục thời gian 
+của 2 CTDL này như thế nào:</p><ul><li>Với Persistent Data Structures, 
+tất cả các version được lưu lại, và bạn không thể nào thay đổi một 
+version trong quá khứ (điều duy nhất bạn có thể làm là tạo ra một 
+version mới từ 1 version cũ và thực hiện thay đổi trên version mới này).</li><li>Với
+ Retroactive Data Structures, bạn có thể thực hiện thay đổi trên một 
+version cũ. Thay đổi trên một version cũ này ảnh hưởng đến tất cả các 
+version sau nó.</li></ul><p>Bạn có thể hình dung 2 khái niệm này như 2 cách hiểu khác nhau về time travel:</p><ul><li>Persistent
+ Data Structures: Bạn không thể thay đổi quá khứ. Khi bạn đi ngược về 
+quá khứ, bạn bước sang một parallel world, và tất cả các điều bạn làm 
+không ảnh hưởng đến trục thời gian mà bạn xuất phát. Parallel world này 
+chịu ảnh hưởng của những việc bạn làm ở đây, nhưng 2 thế giới hoàn toàn 
+không liên quan đến nhau. Giả sử người yêu của bạn rời xa bạn, và bạn 
+trở về quá khứ để thay đổi điều đó (và thành công). Lúc này có 2 thế 
+giới, 1 thế giới mà 2 bạn ở bên nhau, và 1 thế giới mà 2 bạn không ở bên
+ nhau. Cả 2 thế giới đều tồn tại và không liên quan đến nhau.</li><li>Retroactive
+ Data Structures: Khi bạn thay đổi quá khứ và những thay đổi đó ảnh 
+hưởng đến hiện tại. Đây là trường hợp mà time travel trở nên thú vị, bởi
+ bạn có thể tạo nên những nghịch lý: Chẳng hạn bạn trở về quá khứ và 
+ngăn cản bố mẹ bạn lấy nhau --&gt; Bạn không thể ra đời --&gt; không thể
+ quay trở về quá khứ...</li></ul><p>Sự khác biệt về cách xử lý trục thời
+ gian khiến cho Retroactive Data Structures có rất nhiều ứng dụng trên 
+thực tế - trái ngược hẳn với Persistent Data Structures chỉ thường được 
+thấy ở trong các kỳ thi. Một vài ứng dụng quan trọng của Retroactive 
+Data Structures gồm có:</p><ul><li>Error Correction: Giả sử một dữ liệu 
+bị nhập sai, làm ảnh hưởng đến tất cả các thao tác sau đấy. Retroactive 
+DS cho phép sửa dữ liệu nhập sai và ảnh hưởng (tích cực) đến tất cả các 
+thao tác sau đó.</li><li>Bad data: Gần giống với Error Correction, nhưng dữ liệu sai bị xóa đi thay vì được sửa lại.</li><li>Recovery:
+ Giả sử một lỗi của phần cứng làm một số dữ liệu không được đọc. 
+Retroactive DS cho phép đọc lại những dữ liệu này và thay đổi tất cả các
+ thao tác được thực hiện sau đó.</li></ul><p>Trên thực tế, Retroactive 
+Data Structures còn đang dừng lại ở việc là một khái niệm, chứ chưa có 
+một phương pháp cài đặt nào hiệu quả. Các bạn nếu muốn tìm hiểu có thể 
+nghiên cứu thêm về cơ chế rollback trong database hoặc tìm kiếm thêm về 
+Retroactive Data Structures.</p><p>Bài tập áp dụng</p><ul><li><a href="http://www.spoj.com/problems/MKTHNUM/">SPOJ - MKTHNUM</a></li><li><a href="http://ipsc.ksp.sk/2011/real/problems/g.html">IPSC 2011 - Grid Surveillance</a></li></ul></div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="11" post-reply-url="/forum/8/3/11/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+            
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="11" role="button" style="text-decoration: none;" id="upvote-11">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-11">
+                      2
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="11" role="button" style="text-decoration: none;" id="downvote-11">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+      
+    
+       
+        
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-486" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(http://www.gravatar.com/avatar/558ac384bf21520669ff7791007e19cc/?s=80) no-repeat">
+          <a href="http://vnoi.info/user/profile/canhnhtse03860/">
+            <img src="Persistent%20Data%20Structures%20-%20VNOI_files/a.jpeg" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/canhnhtse03860/"><span class="user-teal">canhnhtse03860</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-default arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/canhnhtse03860/" class="post-username">
+                canhnhtse03860
+              </a>
+              
+              <a href="#post-486"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              11&nbsp;tháng, 1&nbsp;tuần trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+            <div class="well">
+              Trả lời
+              <a href="http://vnoi.info/user/profile/admin/"><span class="user-violet">admin</span></a>
+              <br>
+              <a href="http://vnoi.info/library/8/3/?page=1#post-9"><span class="glyphicon glyphicon-link">&nbsp;</span></a>
+              <a href="javascript:void(0)" onclick="$(this).next().toggle()">Hiện bài gốc</a>
+              <div class="post-resize-picture" id="post-&lt;p&gt;&lt;strong&gt;2. Persistent IT&lt;/s-parent" style="display:none"><p><strong>2. Persistent IT</strong></p><p><strong>Tư tưởng:</strong></p><p>Quay
+ trở lại bài toán. Chúng ta biết rằng mỗi thao tác update trên IT chỉ 
+mất O(logN). Điều này tương đương với việc mỗi thao tác update chỉ làm 
+thay đổi O(logN) nút trên cây. Như vậy ta hoàn toàn có thể lưu lại tất 
+cả các thay đổi trên tất cả các nút trong O(Q*logN).</p><p>&nbsp;</p><p>Từ đó, ta rút ra được một tư tưởng cài đặt thuật toán:</p><ul><li>Với
+ mỗi thao tác Update, ta tạo thêm một số nút mới trên IT. Để không phải 
+sinh thêm các nút không bị thay đổi, một nút ở version mới có thể có con
+ là một nút ở vesion cũ.<ul><li>Chú ý: Mỗi thao tác Update luôn thay đổi
+ một đường đi từ gốc đến một nút lá, nên không có trường hợp một nút ở 
+version cũ có con là một nút ở version mới hơn. (Nếu thao tác Update là 
+Update 1 đoạn, các nút bị thay đổi không còn là một đường đi nữa, nhưng 
+nhận xét này vẫn đúng).</li></ul></li><li>Khi thực hiện thao tác Query trên version t, ta chỉ cần thực hiện Query trên nút gốc ở version t.</li></ul><p>Tư tưởng này còn được gọi là&nbsp;<strong>Path Copy</strong>&nbsp;trong các tài liệu tiếng Anh.</p><p>&nbsp;</p><p><strong>Cài đặt:&nbsp;</strong></p><pre style="background-color: rgb(57, 66, 78);"><code class="language-cpp hljs"><span class="hljs-keyword">struct</span> Node {
+    <span class="hljs-keyword">int</span> left, right;    <span class="hljs-comment">// ID of left child &amp; right child</span>
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ln;       <span class="hljs-comment">// Max value of node</span>
+    Node() {}
+    Node(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ln, <span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right) : ln(ln), left(left), right(right) {}
+} it[<span class="hljs-number">11000111</span>];         <span class="hljs-comment">// Each node has a position in this array, called ID</span>
+<span class="hljs-keyword">int</span> nNode;
+
+<span class="hljs-keyword">int</span> ver[MN];            <span class="hljs-comment">// ID of root in each version</span>
+
+<span class="hljs-comment">// Update max value of a node</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">refine</span><span class="hljs-params">(<span class="hljs-keyword">int</span> cur)</span> </span>{
+    it[cur].ln = max(it[it[cur].left].ln, it[it[cur].right].ln);
+}
+
+<span class="hljs-comment">// Update a range, and return new ID of node</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> oldId)</span> </span>{
+    <span class="hljs-keyword">if</span> (l == r) {
+        ++nNode;
+        it[nNode] = Node(x, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+        <span class="hljs-keyword">return</span> nNode;
+    }
+
+    <span class="hljs-keyword">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> cur = ++nNode;
+
+    <span class="hljs-keyword">if</span> (u &lt;= mid) {
+        it[cur].left = update(l, mid, u, x, it[oldId].left);
+        it[cur].right = it[oldId].right;
+        refine(cur);
+    }
+    <span class="hljs-keyword">else</span> {
+        it[cur].left = it[oldId].left;
+        it[cur].right = update(mid+<span class="hljs-number">1</span>, r, u, x, it[oldId].right);
+        refine(cur);
+    }
+
+    <span class="hljs-keyword">return</span> cur;
+}
+
+<span class="hljs-comment">// Get max of range. Same as usual IT</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nodeId, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> v)</span> </span>{
+    <span class="hljs-keyword">if</span> (v &lt; l || r &lt; u) <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span> (u &lt;= l &amp;&amp; r &lt;= v) <span class="hljs-keyword">return</span> it[nodeId].ln;
+
+    <span class="hljs-keyword">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> max(get(it[nodeId].left, l, mid, u, v), get(it[nodeId].right, mid+<span class="hljs-number">1</span>, r, u, v));
+}
+
+
+<span class="hljs-comment">// When update:</span>
+    ++nVer;
+    ver[nVer] = update(<span class="hljs-number">1</span>, n, u, x, ver[nVer-<span class="hljs-number">1</span>]);
+
+<span class="hljs-comment">// When query:</span>
+    res = get(ver[t], <span class="hljs-number">1</span>, n, u, v);
+</code></pre><ul><li>Ban đầu, ta có một mảng&nbsp;<strong>it</strong>, lưu tất cả các nút sẽ được sinh ra của IT. Mỗi nút gồm có<ul><li>Index của con trái, index của con phải (2 biến&nbsp;<strong>left</strong>&nbsp;và&nbsp;<strong>right</strong>)</li><li>Giá trị nhỏ nhất của các số trong khoảng mà nút quản lý (ở version khi nút đó được tạo ra): biến&nbsp;<strong>ln</strong></li></ul></li><li>Ta lưu thêm index của các nút gốc ở các version khác nhau vào một mảng&nbsp;<strong>ver</strong></li><li>Hàm&nbsp;<strong>update</strong>:<ul><li>Tạo ra các nút mới, và trỏ đến các con ở version cũ hoặc version mới, tùy theo các con có bị thay đổi hay không</li><li>Trả lại index của nút mới được tạo</li></ul></li><li>Hàm&nbsp;<strong>get:</strong><ul><li>Trả lại min của một đoạn được quản lý bởi nút&nbsp;<strong>nodeId</strong></li></ul></li></ul><p>&nbsp;</p><p><strong>Phân tích:</strong></p><ul><li>Cách
+ cài đặt Persistent Data Structures trong mục này rất hiệu quả. Nó hoàn 
+toàn không làm tăng thêm độ phức tạp (persistent IT có độ phức tạp mỗi 
+thao tác là O(logN)), và bộ nhớ cần thêm là tối ưu: O(Q*logN).</li><li>Tuy
+ nhiên, cách cài đặt này không dễ áp dụng với những CTDL khác. Chẳng hạn
+ sẽ rất khó để cài đúng BIT với phương pháp này. Ở mục tiếp theo, mình 
+sẽ trình bày một phương pháp cài đặt khác có thể dùng cho BIT, tuy nhiên
+ có độ phức tạp lớn hơn.</li></ul></div>
+            </div>
+          
+          <div class="post-resize-picture"><p>file đính kèm persistentIT.cpp ở đâu vậy ạ?</p></div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="486" post-reply-url="/forum/8/3/486/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+            
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="486" role="button" style="text-decoration: none;" id="upvote-486">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-486">
+                      0
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="486" role="button" style="text-decoration: none;" id="downvote-486">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+      
+    
+       
+        
+
+
+
+
+
+
+  <div class="post-outer-wrapper row" style="margin-bottom:20px">
+    
+    <span id="post-489" class="anchor"></span>
+    <div class="col-xs-1">
+      <div class="post-avatar-wrapper ">
+        
+          <div class="circular-image" style="background: url(/media/avatars/RR/resized/80/IMG_3199.JPG) no-repeat">
+          <a href="http://vnoi.info/user/profile/RR/">
+            <img src="Persistent%20Data%20Structures%20-%20VNOI_files/IMG_3199.JPG" alt="" width="80px" height="80px">
+          </a>
+          </div>
+        
+      </div>
+      
+        <div class="post-username-under-avata">
+          <a href="http://vnoi.info/user/profile/RR/"><span class="user-red">RR</span></a>
+        </div>
+      
+    </div>
+    <div class="post-content post-content-wrapper col-xs-11">
+      <div class="panel panel-default arrow_box">
+        <div class="panel-heading">
+          <div class="container-fluid panel-container">
+            <div class="col-xs-6 text-left">
+              
+              <a href="http://vnoi.info/user/profile/RR/" class="post-username">
+                RR
+              </a>
+              
+              <a href="#post-489"><span class="glyphicon glyphicon-link"></span></a>
+            </div>
+            <div class="text-right">
+              11&nbsp;tháng, 1&nbsp;tuần trước
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          
+            <div class="well">
+              Trả lời
+              <a href="http://vnoi.info/user/profile/canhnhtse03860/"><span class="user-teal">canhnhtse03860</span></a>
+              <br>
+              <a href="http://vnoi.info/library/8/3/?page=1#post-486"><span class="glyphicon glyphicon-link">&nbsp;</span></a>
+              <a href="javascript:void(0)" onclick="$(this).next().toggle()">Hiện bài gốc</a>
+              <div class="post-resize-picture" id="post-&lt;p&gt;file đính kèm persistentIT.-parent" style="display:none"><p>file đính kèm persistentIT.cpp ở đâu vậy ạ?</p></div>
+            </div>
+          
+          <div class="post-resize-picture"><p>À, sorry bạn, bài này mình copy từ blog nên quên thêm vào. Mình sẽ edit bài post này sớm nhất có thể.</p></div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-10 text-left">
+            
+              
+                <a class="post-reply" href="javascript:void(0)" role="button" post-id="489" post-reply-url="/forum/8/3/489/post_create/">
+                  Trả lời
+                </a>
+              
+              
+              
+              
+            
+            
+            </div>
+            <div class="post-vote-wrapper text-right col-md-2">
+              <table style="width:100%">
+                <colgroup>
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                  <col style="width:33%; text-align: center;">
+                </colgroup>
+                <tbody><tr>
+                  <td>
+                    <a class="post-upvote col-md-4" href="javascript:void(0)" post-id="489" role="button" style="text-decoration: none;" id="upvote-489">
+                      <div class="up">▲</div>
+                    </a>
+                  </td>
+                  <td>
+                    <div class="post-count-upvote col-md-4" id="total-vote-489">
+                      0
+                    </div>
+                  </td>
+                  <td>
+                    <a class="post-downvote col-md-4" href="javascript:void(0)" post-id="489" role="button" style="text-decoration: none;" id="downvote-489">
+                      <div class="down">▼</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+
+
+      
+    
+  </div>
+
+  <div id="post-delete-confirm-dialog" style="display:none" title="Xóa bài viết">
+    Thao tác này sẽ xóa hoàn toàn bài viết này. Bạn không thế lấy lại bài viết đã xóa.
+    Bạn có muốn tiếp tục không?
+  </div>
+
+  <div id="post-reply-form-div" style="display:none">
+    
+
+
+
+
+<div>
+  <form role="form" class="form-horizontal" method="post" id="post-reply-form">
+    
+    <input id="id_title" name="title" type="hidden">
+<div class="form-group"><label class="col-md-2 control-label" for="id_content">Nội dung</label><div class="col-md-8"><textarea style="visibility: hidden; display: none;" class="form-control" cols="40" id="id_content" name="content" placeholder="Nội dung" rows="10" title=""></textarea><div id="cke_id_content" class="cke_1 cke cke_reset cke_chrome cke_editor_id_content cke_ltr cke_browser_gecko" dir="ltr" role="application" aria-labelledby="cke_id_content_arialbl" lang="en"><span id="cke_id_content_arialbl" class="cke_voice_label">Rich Text Editor, id_content</span><div class="cke_inner cke_reset" role="presentation"><span id="cke_1_top" class="cke_top cke_reset_all" role="presentation" style="height: auto; -moz-user-select: none;"><span id="cke_5" class="cke_voice_label">Editor toolbars</span><span id="cke_1_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_5" onmousedown="return false;"><span id="cke_7" class="cke_toolbar" aria-labelledby="cke_7_label" role="toolbar"><span id="cke_7_label" class="cke_voice_label">Basic Styles</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_8" class="cke_button cke_button__bold  cke_button_off" title="Bold" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_8_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(0,event);" onfocus="return CKEDITOR.tools.callFunction(1,event);" onclick="CKEDITOR.tools.callFunction(2,this);return false;"><span class="cke_button_icon cke_button__bold_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -24px;background-size:auto;">&nbsp;</span><span id="cke_8_label" class="cke_button_label cke_button__bold_label" aria-hidden="false">Bold</span></a><a id="cke_9" class="cke_button cke_button__italic  cke_button_off" title="Italic" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_9_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(3,event);" onfocus="return CKEDITOR.tools.callFunction(4,event);" onclick="CKEDITOR.tools.callFunction(5,this);return false;"><span class="cke_button_icon cke_button__italic_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -48px;background-size:auto;">&nbsp;</span><span id="cke_9_label" class="cke_button_label cke_button__italic_label" aria-hidden="false">Italic</span></a><a id="cke_10" class="cke_button cke_button__subscript  cke_button_off" title="Subscript" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_10_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(6,event);" onfocus="return CKEDITOR.tools.callFunction(7,event);" onclick="CKEDITOR.tools.callFunction(8,this);return false;"><span class="cke_button_icon cke_button__subscript_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -96px;background-size:auto;">&nbsp;</span><span id="cke_10_label" class="cke_button_label cke_button__subscript_label" aria-hidden="false">Subscript</span></a><a id="cke_11" class="cke_button cke_button__superscript  cke_button_off" title="Superscript" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_11_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(9,event);" onfocus="return CKEDITOR.tools.callFunction(10,event);" onclick="CKEDITOR.tools.callFunction(11,this);return false;"><span class="cke_button_icon cke_button__superscript_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -120px;background-size:auto;">&nbsp;</span><span id="cke_11_label" class="cke_button_label cke_button__superscript_label" aria-hidden="false">Superscript</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_12" class="cke_toolbar" aria-labelledby="cke_12_label" role="toolbar"><span id="cke_12_label" class="cke_voice_label">Paragraph</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_13" class="cke_button cke_button__numberedlist  cke_button_off" title="Insert/Remove Numbered List" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_13_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(12,event);" onfocus="return CKEDITOR.tools.callFunction(13,event);" onclick="CKEDITOR.tools.callFunction(14,this);return false;"><span class="cke_button_icon cke_button__numberedlist_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -576px;background-size:auto;">&nbsp;</span><span id="cke_13_label" class="cke_button_label cke_button__numberedlist_label" aria-hidden="false">Insert/Remove Numbered List</span></a><a id="cke_14" class="cke_button cke_button__bulletedlist  cke_button_off" title="Insert/Remove Bulleted List" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_14_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(15,event);" onfocus="return CKEDITOR.tools.callFunction(16,event);" onclick="CKEDITOR.tools.callFunction(17,this);return false;"><span class="cke_button_icon cke_button__bulletedlist_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -528px;background-size:auto;">&nbsp;</span><span id="cke_14_label" class="cke_button_label cke_button__bulletedlist_label" aria-hidden="false">Insert/Remove Bulleted List</span></a><span class="cke_toolbar_separator" role="separator"></span><a id="cke_15" class="cke_button cke_button__outdent cke_button_disabled " title="Decrease Indent" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_15_label" aria-haspopup="false" aria-disabled="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(18,event);" onfocus="return CKEDITOR.tools.callFunction(19,event);" onclick="CKEDITOR.tools.callFunction(20,this);return false;"><span class="cke_button_icon cke_button__outdent_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -384px;background-size:auto;">&nbsp;</span><span id="cke_15_label" class="cke_button_label cke_button__outdent_label" aria-hidden="false">Decrease Indent</span></a><a id="cke_16" class="cke_button cke_button__indent  cke_button_off" title="Increase Indent" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_16_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(21,event);" onfocus="return CKEDITOR.tools.callFunction(22,event);" onclick="CKEDITOR.tools.callFunction(23,this);return false;"><span class="cke_button_icon cke_button__indent_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -336px;background-size:auto;">&nbsp;</span><span id="cke_16_label" class="cke_button_label cke_button__indent_label" aria-hidden="false">Increase Indent</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_17" class="cke_toolbar" aria-labelledby="cke_17_label" role="toolbar"><span id="cke_17_label" class="cke_voice_label">Links</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_18" class="cke_button cke_button__link  cke_button_off" title="Link" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_18_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(24,event);" onfocus="return CKEDITOR.tools.callFunction(25,event);" onclick="CKEDITOR.tools.callFunction(26,this);return false;"><span class="cke_button_icon cke_button__link_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -456px;background-size:auto;">&nbsp;</span><span id="cke_18_label" class="cke_button_label cke_button__link_label" aria-hidden="false">Link</span></a><a id="cke_19" class="cke_button cke_button__unlink cke_button_disabled " title="Unlink" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_19_label" aria-haspopup="false" aria-disabled="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(27,event);" onfocus="return CKEDITOR.tools.callFunction(28,event);" onclick="CKEDITOR.tools.callFunction(29,this);return false;"><span class="cke_button_icon cke_button__unlink_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -480px;background-size:auto;">&nbsp;</span><span id="cke_19_label" class="cke_button_label cke_button__unlink_label" aria-hidden="false">Unlink</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_20" class="cke_toolbar" aria-labelledby="cke_20_label" role="toolbar"><span id="cke_20_label" class="cke_voice_label">Insert</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_21" class="cke_button cke_button__codesnippet  cke_button_off" title="Insert Code Snippet" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_21_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(30,event);" onfocus="return CKEDITOR.tools.callFunction(31,event);" onclick="CKEDITOR.tools.callFunction(32,this);return false;"><span class="cke_button_icon cke_button__codesnippet_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -720px;background-size:auto;">&nbsp;</span><span id="cke_21_label" class="cke_button_label cke_button__codesnippet_label" aria-hidden="false">Insert Code Snippet</span></a><a id="cke_22" class="cke_button cke_button__image  cke_button_off" title="Image" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_22_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(33,event);" onfocus="return CKEDITOR.tools.callFunction(34,event);" onclick="CKEDITOR.tools.callFunction(35,this);return false;"><span class="cke_button_icon cke_button__image_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -744px;background-size:auto;">&nbsp;</span><span id="cke_22_label" class="cke_button_label cke_button__image_label" aria-hidden="false">Image</span></a><a id="cke_23" class="cke_button cke_button__mathjax  cke_button_off" title="Math" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_23_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(36,event);" onfocus="return CKEDITOR.tools.callFunction(37,event);" onclick="CKEDITOR.tools.callFunction(38,this);return false;"><span class="cke_button_icon cke_button__mathjax_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -696px;background-size:auto;">&nbsp;</span><span id="cke_23_label" class="cke_button_label cke_button__mathjax_label" aria-hidden="false">Math</span></a><a id="cke_24" class="cke_button cke_button__specialchar  cke_button_off" title="Insert Special Character" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_24_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(39,event);" onfocus="return CKEDITOR.tools.callFunction(40,event);" onclick="CKEDITOR.tools.callFunction(41,this);return false;"><span class="cke_button_icon cke_button__specialchar_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -768px;background-size:auto;">&nbsp;</span><span id="cke_24_label" class="cke_button_label cke_button__specialchar_label" aria-hidden="false">Insert Special Character</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_25" class="cke_toolbar" aria-labelledby="cke_25_label" role="toolbar"><span id="cke_25_label" class="cke_voice_label">Styles</span><span class="cke_toolbar_start"></span><span id="cke_6" class="cke_combo cke_combo__format  cke_combo_off" role="presentation"><span id="cke_6_label" class="cke_combo_label">Format</span><a class="cke_combo_button" title="Paragraph Format" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_6_label" aria-haspopup="true" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(43,event,this);" onfocus="return CKEDITOR.tools.callFunction(44,event);" onclick="CKEDITOR.tools.callFunction(42,this);return false;"><span id="cke_6_text" class="cke_combo_text cke_combo_inlinelabel">Format</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_26" class="cke_toolbar" aria-labelledby="cke_26_label" role="toolbar"><span id="cke_26_label" class="cke_voice_label">Tools</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_27" class="cke_button cke_button__maximize  cke_button_off" title="Maximize" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_27_label" aria-haspopup="false" onblur="this.style.cssText = this.style.cssText;" onkeydown="return CKEDITOR.tools.callFunction(45,event);" onfocus="return CKEDITOR.tools.callFunction(46,event);" onclick="CKEDITOR.tools.callFunction(47,this);return false;"><span class="cke_button_icon cke_button__maximize_icon" style="background-image:url(http://vnoi.info/static/js/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -792px;background-size:auto;">&nbsp;</span><span id="cke_27_label" class="cke_button_label cke_button__maximize_label" aria-hidden="false">Maximize</span></a></span><span class="cke_toolbar_end"></span></span></span></span><div style="height: 200px;" id="cke_1_contents" class="cke_contents cke_reset" role="presentation"><iframe allowtransparency="true" tabindex="0" title="Rich Text Editor, id_content" class="cke_wysiwyg_frame cke_reset" style="width: 100%; height: 100%;" src="Persistent%20Data%20Structures%20-%20VNOI_files/a.html" frameborder="0"></iframe></div></div></div></div></div>
+<input id="id_parent" name="parent" type="hidden">
+    <input name="csrfmiddlewaretoken" value="6I66Wn5o4n3nupzGjr6cz8PIDggVLVJy" type="hidden">
+    
+      <div class="form-group"><label class="col-md-2 control-label">&nbsp;</label><div class="col-md-8"><button class="btn btn-primary" type="submit"><span class="fa-fw glyphicon glyphicon-ok"></span>OK</button></div></div>
+    
+  </form>
+</div>
+
+
+
+<script src="Persistent%20Data%20Structures%20-%20VNOI_files/ckeditor.js"></script>
+<script src="Persistent%20Data%20Structures%20-%20VNOI_files/config.js"></script>
+<script>
+CKEDITOR.replace('id_content');
+</script>
+
+
+  </div>
+
+  
+  
+
+
+
+
+
+    </div>
+    <div class="push-footer"></div>
+  </div>
+  <!--/.container-->
+    
+      <div class="footer">
+        <div class="container">
+          <p class="text-muted">© VNOI Team 2015</p>
+        </div>
+      </div>
+    
+
+
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="Persistent%20Data%20Structures%20-%20VNOI_files/jquery-2.js"></script>
+  <script src="Persistent%20Data%20Structures%20-%20VNOI_files/bootstrap.js"></script>
+  <script src="Persistent%20Data%20Structures%20-%20VNOI_files/jquery-ui.js"></script>
+  <script src="Persistent%20Data%20Structures%20-%20VNOI_files/jquery.js"></script>
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="Persistent%20Data%20Structures%20-%20VNOI_files/ie10-viewport-bug-workaround.js"></script>
+  <script type="text/javascript" src="Persistent%20Data%20Structures%20-%20VNOI_files/MathJax.js">
+  </script>
+  
+  <script src="Persistent%20Data%20Structures%20-%20VNOI_files/highlight_002.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre:has(code)').css('background-color', '#39424e');
+      hljs.initHighlightingOnLoad();
+    });
+  </script>
+  <script src="Persistent%20Data%20Structures%20-%20VNOI_files/base.js"></script>
+  
+  <script>
+  var navbar_highlight = $.trim("navbar_library");
+  if (navbar_highlight == "") navbar_highlight = "navbar_home";
+  $(document).ready(function () {
+    $("#" + navbar_highlight).addClass("active");
+  });
+  </script>
+  
+  <script src="Persistent%20Data%20Structures%20-%20VNOI_files/forum.js"></script>
+  <script>
+  
+</script>
+
+
+
+
+</body></html>
